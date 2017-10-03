@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Formulario</title>
+	<style>
+		label {
+			display: block;
+			margin: .5em 0 0 0;
+		}
+		
+		.btn {
+			display: block;
+			margin: 1em 0;
+		}
+		
+		div {
+			margin: .4em 0;
+		}
+		
+		div label {
+			width: 25%;
+			float: left;
+		}
+		
+		form fieldset {
+			float: left;
+			width: 40%;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<fieldset>
+		<legend>Alta en el servicio</legend>
+			<div>
+				<label for="nombre">Nombre</label>
+				<input type="text" id="nombre" />
+			</div>
+			<div>
+				<label for="apellidos">Apellidos</label>
+				<input type="text" id="apellidos" size="50" />
+			</div>
+			<div>
+				<label for="dni">DNI</label>
+				<input type="text" id="dni" size="10" maxlength="9" />
+			</div>
+			<div>
+				<label for="contrasena">Contraseña</label>
+				<input type="password" id="contrasena" />
+			</div>
+			<div>
+				<input class="btn" type="submit" value="Darme de alta" />
+			</div>
+		</fieldset>		
+	</form>
+</body>
+</html>

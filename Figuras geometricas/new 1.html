@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- https://www.youtube.com/watch?v=yQWij99CrtU    59:29     dibujando con css diamante-->
+<head>
+<title>Ejercicio figuras avanzados</title>
+<style type="text/css">
+#cuadrado {
+	width: 180px;
+	height: 180px;
+	background-color:red;
+
+}
+/**********************/
+#circulo {
+	width: 180px;
+	height: 180px;
+	background-color:green;
+	border-radius: 50%;
+}
+/**********************/
+#triangulo {
+	width: 0;
+	height: 0;
+	border-top: solid transparent 100px;
+	border-right: solid transparent 100px;
+	border-bottom: solid yellow 100px;
+	border-left: solid transparent 100px;
+}
+/**********************/
+#flecha1 {
+	width: 200px;
+	height: 50px;
+	background-color:green;
+}
+
+#flecha1:after {
+	content:"";
+	width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-bottom: 25px solid transparent;
+	border-left: 25px solid pink;
+	display: block;
+	transform:translate(200px,-50px);
+}
+
+#flecha1:before {
+	content:"";
+	width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-bottom: 25px solid transparent;
+	border-left: 25px solid blue;
+	display: block;
+	transform:translate(0);
+}
+/**********************/
+#cloud {
+	position:relative;
+	left: 50px;
+	top: 50px;
+	width: 300px;
+	height: 200px;
+	background-color:blue;
+}
+
+#circuloGaleria {
+	width: 100px;
+	height: 100px;
+	background-color:green;
+	border-radius: 50%;
+	float: left;
+}
+
+/**********************/
+#cloud1 {
+	position:relative;
+	left: 50px;
+	top: 50px;
+	width: 300px;
+	height: 200px;
+	background-color:blue;
+}
+
+#circuloGaleria1 {
+	width: 100px;
+	height: 100px;
+	background-color:green;
+	border-radius: 50%;
+	float: left;
+}
+
+.cuatro {
+	transform: translate(-50px,-20px);
+}
+
+.cinco {
+	transform: translate(-50px,-20px);
+}
+
+
+</style>
+</head>
+
+<body>
+<div id ="cuadrado">
+</div>
+</br>
+
+<div id ="circulo">
+</div>
+</br>
+
+<div id ="triangulo">
+</div>
+</br>
+
+<div id ="flecha1">
+</div>
+</br>
+
+<div id ="cloud">
+	<div id ="circuloGaleria">
+	</div>
+	<div id ="circuloGaleria">
+	</div>
+	<div id ="circuloGaleria">
+	</div>
+	<div id ="circuloGaleria">
+	</div>
+	<div id ="circuloGaleria">
+	</div>
+</div>
+</br>
+
+<div id ="cloud1">
+	<div id ="circuloGaleria1" class="uno">
+	</div>
+	<div id ="circuloGaleria1" class="dos">
+	</div>
+	<div id ="circuloGaleria1" class="tres">
+	</div>
+	<div id ="circuloGaleria1" class="cuatro">
+	</div>
+	<div id ="circuloGaleria1" class="cinco">
+	</div>
+</div>
+
+
+</body>
+</html>

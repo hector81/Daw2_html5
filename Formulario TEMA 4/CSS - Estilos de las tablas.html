@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="author" content="Universitat Oberta de Catalunya">
+
+<title>CSS - Estilos de las tablas</title>
+<link type="text/css" href="./CSS - Estilos de las tablas_files/normal.css" rel="stylesheet" media="all" title="Estil normal">
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="./CSS - Estilos de las tablas_files/logo.gif" alt="Universitat Oberta de Catalunya">
+    <a href="http://mosaic.uoc.edu/"><img id="logomosaic" src="./CSS - Estilos de las tablas_files/logo-mosaic.gif" alt="Logo de Mosaic" title="Abre la página web de Mosaic"></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Estilos de las tablas</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="http://mosaic.uoc.edu/ac/le/es/m0/accessibilitat.html" id="accesibilidad">Accesibilidad</a> <strong>:</strong> 
+		<a rel="prev" href="http://mosaic.uoc.edu/ac/le/es/m6/ud6/index.html" title="Ir al artículo anterior" accesskey="8"><img src="./CSS - Estilos de las tablas_files/fletxa_izq.gif" alt="Ir al artículo anterior"></a> <strong>:</strong> 
+		<a rel="index" href="http://mosaic.uoc.edu/ac/le/es/index.html" title="Ir al índice" accesskey="0"><img src="./CSS - Estilos de las tablas_files/indice.gif" alt="Ir al índice"></a> <strong>:</strong> 
+		<a rel="next" href="http://mosaic.uoc.edu/ac/le/es/m6/ud8/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="./CSS - Estilos de las tablas_files/fletxa_der.gif" alt="Ir al artículo siguiente"></a>
+	</div>
+</div>
+	             
+<div id="main">
+<h1>33. Estilos de las tablas</h1>
+<p class="by"><a href="http://mosaic.uoc.edu/ac/le/es/index.html#buchanan">Ben Buchanan</a>. 26 de septiembre del 2008 Publicado en: fondo, cebra, error, bordes, alinear</p>  
+
+<p>En ocasiones, parece que en el mundo actual del desarrollo web las tablas estén algo marginadas. Se hace tanto caso a la norma de "¡no utilicéis tablas!" que a veces la gente se olvida de que en realidad la frase es: "No utilicéis tablas para la composición". Las tablas van muy bien para su objetivo original, que es mostrar datos tabulares. Por ello es útil saber cómo aplicarles estilos correctamente.</p>
+
+<p>Esta guía se centra en cómo aplicar CSS de manera eficaz para obtener estilos de tablas de datos claros y legibles. Además, también hablaremos de algunos requisitos habituales del diseño de tablas.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Puede que os resulte útil descargaros los ejemplos de código para las tablas que se muestran en este apartado desde el archivo "table-examples.zip", de manera que podáis ir siguiendo el apartado.</p>
+
+<p class="font"><strong>Descargad los ejemplos en:</strong> "<a href="http://dev.opera.com/articles/view/33-styling-tables/table-examples.zip" hreflang="en">table-examples.zip</a>"</p>
+</div>
+
+<p>Los contenidos de este apartado son los siguientes:</p>
+
+<ul class="index">
+
+<li>33.1. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#tablestructure" accesskey="1">Estructura de las tablas</a></li>
+<li>33.2. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#tablebasics" accesskey="2">Conceptos básicos</a>
+<ul class="index">              
+<li>33.2.1. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#tableandcellwidth">Anchura de tabla y de celda</a></li>
+<li>33.2.2. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#textalignment">Alineación del texto</a></li>
+<li>33.2.3. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#borders">Bordes</a></li>
+<li>33.2.4. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#padding">Relleno</a></li>
+<li>33.2.5. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#captionplacement">Colocación del <code>caption</code></a></li>
+<li>33.2.6. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#backgrounds">Fondo</a></li>
+<li>33.2.7. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#fixingie">Arreglar el IE con estilos condicionales</a></li>
+<li>33.2.8. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#easydesign">Un diseño sencillo</a></li>    
+</ul></li>
+<li>33.3. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#variations" accesskey="3">Variaciones habituales</a>
+<ul class="index">
+<li>33.3.1. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#zebrastriping">Aplicar líneas de cebra</a></li>
+<li>33.3.2. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#unevencolumns">Parrillas incompletas</a></li>
+<li>33.3.3. <a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#incomplete-grids">Parrillas interiores</a>
+<ul class="index">
+<li><a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#inner-grids">Parrillas interiores con: lastchild</a></li>
+</ul></li>
+</ul></li>
+<li class="especial"><a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#summary">Resumen</a></li>
+<li class="especial"><a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#exercises">Preguntas de repaso</a></li>
+<li class="especial"><a href="http://mosaic.uoc.edu/ac/le/es/m6/ud7/index.html#furtherreading">Lecturas complementarias</a></li>
+
+</ul>
+
+<h2 id="tablestructure">33.1. Estructura de las tablas</h2>
+
+<p>Antes de centrarnos en el CSS, fijémonos en los elementos estructurales básicos de las tablas a las que deberéis aplicar estilos:</p>
+
+<ul>
+<li><p>Encabezamientos de las tablas.</p></li>
+<li><p>Celdas de datos de las tablas.</p></li>
+<li><p>Títulos de las tablas.</p></li>
+</ul>
+
+<p>Cuando los usuarios de vuestro sitio lean vuestra tabla, deberían poder entender y seguir fácilmente su estructura. La manera más sencilla de conseguirlo es utilizar bordes, colores de fondo o ambos.</p>
+
+<p>No es necesario que sigáis estas convenciones estilísticas, pero sí deberíais garantizar que existe una diferencia clara entre las celdas <code>th</code> y <code>td</code>; además, el <code>caption</code> (título) debería estar asociado claramente con la tabla y diferenciado del resto del texto de la página.</p>
+
+
+<h2 id="tablebasics">33.2. Conceptos básicos</h2>
+
+<p>Fijaos en cómo se representa esta tabla sin estilo:</p>
+
+<table id="table_exemple" summary="a summary of recent major volcanic eruptions in the Pacific Northwest">
+	<caption>Recent Major Volcanic Eruptions in the Pacific Northwest</caption>
+	<thead>
+		<tr>
+			<th scope="col">Volcano Name</th>
+			<th scope="col">Location</th>
+			<th scope="col">Last Major Eruption</th>
+			<th scope="col">Type of Eruption</th>
+		</tr>
+	</thead>
+	<tfoot><tr><td colspan="4">Compiled in 2008 by Ms Jen</td></tr></tfoot>
+	<tbody>
+		<tr>
+			<th scope="row">Mt. Lassen</th>
+			<td>California</td>
+			<td>1914-17</td>
+			<td>Explosive Eruption</td>
+		</tr>
+		<tr>
+			<th scope="row">Mt. Hood</th>
+			<td>Oregon</td>
+			<td>1790s</td>
+			<td>Pyroclastic flows and Mudflows</td>
+		</tr>
+		<tr>
+			<th scope="row">Mt. St. Helens</th>
+			<td>Washington</td>
+			<td>1980</td>
+			<td>Explosive Eruption</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>Podéis ver el mismo ejemplo en el apartado 19 del módulo "El texto central de HTML".</p>
+</div>
+
+<p>Los datos son comprensibles, pero hay que esforzarse un poco para ver cómo va todo. Añadámosle unos estilos para hacer que sea más fácil de leer.</p>
+
+<h3 id="tableandcellwidth">33.2.1. Anchura de tabla y de celda</h3>
+
+<p>La primera decisión que hay que tomar es qué anchura debe tener la tabla. La opción por defecto del navegador es la misma que establecer <code>table {width: auto; }</code>, que da como resultado que la tabla se extienda a lo ancho del contenido. Esto, en general, queda desordenado.</p>
+
+<p>Pongamos por caso que nuestra tabla debe ir en una columna de contenido de 600 píxeles de anchura. Especificamos que la tabla se amplíe hasta el 100% de la anchura disponible para aprovechar mejor el espacio. Como hay cuatro columnas, establezcamos también la anchura de las celdas de tabla en un 25% cada una.</p>
+
+<pre><code>table {
+   width: 100%;
+}
+th, td {
+   width: 25%;
+}</code></pre>
+
+<p>De hecho, podéis limitaros a establecer la anchura para <code>th</code> y esto definirá la anchura de todas las columnas; aun así, siempre va bien ser riguroso. Este estilo tan sencillo dará el resultado que se ve en la figura 1:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_66b.gif" alt="Captura de pantalla que muestra columnas del mismo tamaño">
+<p>Figura 1. La tabla de ejemplo con una configuración sencilla de anchura</p>
+</div>
+
+<p>Ahora las celdas quedan con una anchura igualada. Más adelante ya veremos cómo especificar anchos desiguales, pero de momento seguimos con el siguiente paso.</p>
+
+
+<h3 id="textalignment">33.2.2. Alineación del texto</h3>
+
+<p>La tabla aún es un poco confusa de leer, de manera que vamos a especificar que la alineación del texto sea un poco más clara. La norma adicional que se muestra a continuación alineará a la izquierda los encabezamientos para que encajen con el contenido (por defecto, los navegadores centran los títulos de las tablas):</p>
+
+<pre><code>table {
+   width: 100%;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+}</code></pre>
+
+<p>Así se clarifica un poco la tabla, como se puede ver en la figura 2:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_67.gif" alt="Captura de pantalla que muestra el texto de los títulos de columna alineado a la izquierda">
+<p>Figura 2. Tabla con alineación a la izquierda </p>
+</div>
+
+<p>Ahora mismo, todas las celdas están alineadas verticalmente en el centro. Si lo preferís, podéis definir que el texto se alinee en la parte superior o inferior de la celda, o cualquier <a href="http://www.w3.org/TR/REC-CSS2/visudet.html#line-height" hreflang="en">posición de <code>vertical-align</code></a> que queráis. Las siguientes reglas establecen que el texto se alinee en la parte superior.</p>
+
+<pre><code>table {
+   width: 100%;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   <strong>vertical-align: top;</strong>
+}</code></pre>
+
+<p>Ahora la tabla queda como se ve en la figura 3:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_68.gif" alt="Captura de pantalla que muestra las celdas alineadas en la parte superior.">
+<p>Figura 3. La tabla con alineación vertical </p>
+</div>
+
+<p>Fijaos en cómo todos los títulos de la fila superior quedan tocando arriba aunque "Last Major Eruption" queda en dos líneas.</p>
+   
+
+<h3 id="borders">33.2.3. Bordes</h3>
+
+<p>La tabla ya queda un poco mejor, pero aún cuesta un poco leer cada línea. Ahora aplicaremos algunos bordes para hacer que todo sea más fácil de leer. Debéis establecer los bordes de manera independiente para cada parte de la tabla y después decidir cómo se deberían combinar.</p>
+
+<p>Para mostraros dónde quedarán los bordes, la figura 4 muestra diferentes bordes para <code>table</code> (<code>solid black</code>, negro sólido), <code>caption</code> (<code>solid grey</code>, gris sólido), <code>th</code> (<code>dashed blue</code>, línea discontinua azul) y <code>td</code> (<code>dotted red</code>, línea de puntos roja):</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_69.gif" alt="Captura de pantalla que muestra la disposición de los bordes descrita en el texto.">
+<p>Figura 4. Muestra de los diferentes bordes en una tabla </p>
+</div>
+
+<p>Fijaos en cómo el borde de la <code>table</code> recorre el contorno exterior de todas las celdas de encabezamiento y de datos y después pasa entre las celdas y el título de la tabla. También podéis ver que, por defecto, los bordes <code>th</code> y <code>td</code> se distancian un poco el uno del otro.</p>
+
+<p>Pasemos ahora a otro estilo de tabla. Podéis crear un borde negro sencillo para la tabla y las celdas mediante la propiedad <code>border</code> (borde). Esto se hace con las reglas siguientes:</p>
+
+<pre><code>table {
+   width: 100%;
+   <strong>border: 1px solid #000;</strong>
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   <strong>border: 1px solid #000;</strong>
+}</code></pre>
+
+<p>y da como resultado lo que se muestra en la figura 4b:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_70.gif" alt="Captura de pantalla que muestra los bordes negros sencillos.">
+<p>Figura 4b. Tabla con bordes negros sencillos </p>
+</div>
+
+<p>Esto provoca que las filas sean más fáciles de leer, pero puede que no os guste el espacio que queda entre las celdas. Hay dos maneras de cambiarlo.</p>
+<p>Primero, podéis limitaros a cerrar los huecos utilizando la propiedad <code>border-spacing</code> (espaciado de bordes), por ejemplo así:</p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   <strong>border-spacing: 0;</strong>
+}</code></pre>
+
+<p>De esta manera, los bordes se tocarán en lugar de quedar separados. Así se cambia el borde de 1 píxel por un borde de 2 píxeles, como se ve en la figura 5:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_71.gif" alt="Captura de pantalla de celdas con los bordes sumados">
+<p>Figura 5. Tabla sin espaciado entre bordes que produce un efecto de borde de 2 píxeles.</p>
+</div>
+
+<p>También podéis aumentar el espacio entre las celdas utilizando <code>border-spacing</code>, aunque hay que tener en cuenta que esta propiedad no funciona con Internet Explorer.</p>
+
+<p>Si queréis mantener el efecto de borde de 1 píxel, necesitaréis definir la tabla de manera que los bordes se "colapsen" los unos sobre los otros. Podéis conseguirlo utilizando la propiedad <code>border-collapse</code> (superposición de bordes) en lugar de la de <code>border-spacing</code> (espaciado de bordes):</p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   <strong>border-collapse: collapse;</strong>
+}</code></pre>
+
+<p>De esta manera, obtendréis una tabla con un borde de 1 píxel como se observa en la figura 6:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_72.gif" alt="Captura de pantalla de tabla con bordes uniformes de 1 píxel sin espacio entre celdas">
+<p>Figura 6. Tabla con <code>border-collapse</code> (superposición de bordes) definido para superponerse y así reducir el borde en 1 píxel</p>
+</div>
+
+<p>Cuando defináis que los bordes se superpongan, debéis tener en cuenta que esto os puede causar problemas si tenéis estilos de bordes diferentes aplicados a celdas adyacentes. Cuando los estilos de bordes diferentes se superponen unos sobre otros, entrarán en "conflicto" entre ellos. Esto se soluciona mediante las <a href="http://www.w3.org/TR/REC-CSS2/tables.html#border-conflict-resolution" hreflang="en">reglas de resolución de conflictos de bordes de tabla de la especificación de CSS2 del W3C</a>, que determinan qué estilo "gana" cuando se superponen.</p>
+
+
+<h3 id="padding">33.2.4. Relleno</h3>
+
+<p>Ahora que ya habéis aplicado bordes en las celdas, puede que queráis añadir un poco de espacio en blanco a las celdas del título y de la tabla. Para hacerlo, sólo debéis utilizar el <code>padding</code> (relleno).</p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   <strong>padding: 0.3em;</strong>
+}
+caption {
+   <strong>padding: 0.3em;</strong>
+}</code></pre>
+
+<p>Esto hace que el texto "respire" un poco, como se ve en la figura 7:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_73.gif" alt="Captura de pantalla que muestra el relleno aumentado.">
+<p>Figura 7. Tabla con relleno aplicado a todas las celdas </p>
+</div>
+
+
+<h3 id="captionplacement">33.2.5. Colocación del <code>caption</code></h3>
+
+<p>Hasta ahora, el <code>caption</code> ha estado siempre en la parte superior de la tabla. Sin embargo, puede que queráis moverlo a otro lugar. Por desgracia, en IE no se puede hacer hasta la versión 8, pero en todos los demás navegadores podéis cambiar la posición del <code>caption</code> utilizando la propiedad <code>caption-side</code> (lado del título). Las opciones posibles son: <code>top</code> (superior), <code>bottom</code> (inferior), <code>left</code> (izquierda) y <code>right</code> (derecha). Ahora lo pondremos en la parte inferior:</p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   <strong>caption-side: bottom;</strong>
+}
+caption {
+   padding: 0.3em;
+}</code></pre>
+
+<p>En la figura 8 se muestra el resultado:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_74.gif" alt="Captura de pantalla del título en la parte inferior">
+<p>Figura 8. Tabla con el <code>caption</code> movido a la parte inferior</p>
+</div>
+
+<p>Para el resto de ejemplos, dejaremos el <code>caption</code> en la parte superior.</p>
+
+
+<h3 id="backgrounds">33.2.6. Fondo</h3>
+
+<p>Otra manera muy sencilla de aplicar estilos a las tablas es añadir colores e imágenes de fondo. Esto se hace con la propiedad <code>background</code> (fondo), aunque debéis tener presente que las diferentes partes de la tabla actuarán como "capas" una encima de la otra. <a href="http://www.w3.org/TR/REC-CSS2/tables.html#table-layers" hreflang="en">La especificación CSS2 explica los efectos de capas de fondo bastante detalladamente,</a> pero en pocas palabras: los fondos se taparán los unos a los otros en este orden:</p>
+
+<ol>
+<li><p>tabla (que queda "al fondo del todo" o "detrás de todo"),</p></li>
+<li><p>grupos de columnas,</p></li>
+<li><p>columnas,</p></li>
+<li><p>grupos de filas,</p></li>
+<li><p>filas,</p></li>
+<li><p>celdas (por "encima" o "delante" de todo, es decir, que su fondo tapa a todos los demás).</p></li>
+</ol>
+
+<p>Por lo tanto, si establecéis un fondo para la tabla y un color diferente para las celdas, el fondo de la celda tapará el fondo de la tabla. Si habéis establecido los bordes en <code>collapse</code> (superposición), el fondo de la tabla no se verá. No obstante, si habéis establecido <code>border-collapse</code> en <code>separate</code>, el fondo de la tabla se verá entre los bordes.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Fijaos en que el concepto de elementos diferentes uno encima del otro en la página es controlable; podéis controlar a qué altura de la "pila" queda un elemento en relación con los demás cambiando su propiedad <code>z-index</code>.</p>
+</div>
+
+<div class="vegeu_tambe">
+<h3>Ved también</h3>
+
+<p>En el apartado 37 de este módulo aprenderéis más cosas sobre <code>z-index</code>.</p>
+</div>
+
+<p>Imaginaos que definís la tabla de manera que tenga un fondo rojo y las celdas con fondo blanco. Entre la separación de las celdas se ve el rojo, pero las celdas siguen siendo blancas, como se muestra en la figura 9:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_75.gif" alt="Captura de pantalla de fondo rojo entre las celdas">
+<p>Figura 9. Tabla que demuestra cómo el elemento de fondo de tabla rojo se ve entre los fondos blancos de las celdas. </p>
+</div>
+
+<p>También podéis utilizar una imagen de fondo. Por ejemplo, si queréis tener una gradación que se vea entre las celdas, podríais definir <code>th</code> y <code>td</code> con fondos blancos, pero establecer el fondo de <code>table</code> con una gradación de colores:</p>
+
+<pre><code>table {
+   border-collapse: separate;
+   border-spacing: 5px;
+   background: #000 url("gradient.gif") bottom left repeat-x;
+   color: #fff;
+}
+td, th {
+   background: #fff;
+   color: #000;
+}</code></pre>
+
+<p>Fijaos en que el color de fondo se establece en negro, que llena el espacio en la parte superior donde acaba la gradación cromática (siempre debéis tener en cuenta que la tabla puede ser más alta que la imagen de fondo). El color de delante del todo se establece en blanco por si en algún momento estos colores por defecto se ven a través del contenido de las celdas. En general, los estilos de las celdas cancelarán la configuración del color del texto del estilo de <code>table {}</code>, pero siempre se deberían definir colores de fondo y de primer plano que hagan contraste.</p>
+
+<p>Estos estilos crean una tabla que quedaría como en la figura 10 en la mayoría de los navegadores.</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_76.gif" alt="Captura de pantalla de fondo de gradación entre las celdas">
+<p>Figura 10. Tabla con una imagen de fondo con gradación de colores que se ve entre las celdas</p>
+</div>
+
+<p>Por defecto, con las versiones anteriores a la 8 de IE no se verá tanto el fondo porque no reconocen <code>border-spacing</code>. Sin embargo, se consigue el mismo efecto, tal como se observa en la figura 11:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_77.gif" alt="Captura de pantalla que muestra un espacio más pequeño en IE.">
+<p>Figura 11. Las versiones anteriores a la 8 de IE proporcionan menos espacio entre bordes. </p>
+</div>
+
+<p>Dependiendo de las circunstancias, puede que os conforméis con esta diferencia de representación entre navegadores. Pero, lógicamente, eso no siempre es posible, por ejemplo cuando un cliente especifica que quiere que un diseño quede exactamente igual en todos los navegadores.</p>
+
+
+<h3 id="fixingie">33.2.7. Arreglar el IE con estilos condicionales</h3>
+
+<p>Existe una manera de solucionar los problemas de IE que hemos mencionado antes. Hay que hurgar un poco y requiere una hoja de estilo extra, pero funciona. Podéis utilizar una <code>expression</code> para hacer el espacio más ancho y después cargar esta expresión mediante comentarios condicionales. La sintaxis de la expresión es ésta:</p>
+
+<pre><code>table {
+   <strong>border-collapse: expression("separate", cellSpacing = "5px");</strong>
+}</code></pre>
+
+<p>Este CSS sólo sirve para IE, de manera que sólo éste lo debe poder aplicar. La expresión también invalidará la hoja de estilo, de manera que los desarrolladores prefieren aislar las manipulaciones de IE en una hoja de estilo aparte que sólo cargue IE.</p>
+
+<p>Para hacerlo, cread una hoja de estilo nuevo que se llame ie-only.css ("sólo IE") y enlazadla dentro de comentarios condicionales:</p>
+
+<pre><code><strong>&lt;!--[if lte IE 7]&gt;</strong>&lt;link rel="stylesheet" media="screen" href="ie-only.css" /&gt;
+<strong>&lt;![endif]--&gt;</strong></code></pre>       
+
+<p>Fijaos en que <code>[if lte IE 7]</code> significa "si menos que o igual a la versión 7 de IE". Esto revela el código en IE 7 y en todas las versiones anteriores de IE, pero el comentario de HTML que lo rodea oculta el código a todos los demás navegadores. Podéis ajustarlo a cualquier versión de IE que necesitéis, por ejemplo, si se trata de la versión IE6 y anteriores, utilizad: <code>[if lte IE 6]</code>.</p>
+
+<p>En vuestra hoja de estilo principal, estableced el estilo normal:</p>
+
+<pre><code>table {
+   border: 1px solid #000;
+   border-collapse: separate;
+   border-spacing: 5px;
+   background: #000 url("gradient.gif") bottom left repeat-x;
+}</code></pre>
+
+<p>y entonces estableced el estilo únicamente para IE como <code>ie-only.css</code>:</p>
+
+<pre><code>table {
+   border-collapse: expression("separate", cellSpacing = "5px");
+}</code></pre>
+
+<p>Así, IE mostrará una tabla con espacios anchos entre las celdas. Sólo debéis acordaros de conservar la configuración de anchura adicional. Si actualizáis vuestra hoja de estilo principal, también deberéis actualizar <code>ie-only.css</code>. Como es lógico, los comentarios condicionales permiten hacer muchas cosas más aparte de aplicar estilos a las tablas, porque la hoja de estilo extra puede incluir todo el CSS que necesitáis para arreglar errores del IE.</p>
+
+
+
+<h3 id="easydesign">33.2.8. Un diseño sencillo</h3>
+
+<p>La mayoría de los diseños utilizan combinaciones sencillas de fondo. Por lo tanto, ahora aplicaremos a los encabezamientos de la tabla un fondo gris y cambiaremos el título de manera que sea texto blanco sobre fondo negro:</p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+caption {
+   padding: 0.3em;
+   <strong>color: #fff;</strong>
+   <strong> background: #000;</strong>
+}
+th {
+   <strong>background: #eee;</strong>
+}</code></pre>
+
+<p>Esto queda como se ve en la figura 12:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_78.gif" alt="Captura de pantalla de tabla con fondos negros y grises">
+<p>Figura 12. Tabla con título de texto blanco sobre fondo negro y fondo gris claro en las celdas de encabezado </p>
+</div>
+
+
+<h2 id="variations">33.3. Variaciones habituales</h2>
+
+<p>En este subapartado nos centraremos en algunos arquetipos de diseño habituales que veréis muchas veces en muchas tablas de la web.</p>
+
+<h3 id="zebrastriping">33.3.1. Aplicar líneas de cebra</h3>
+
+<p>Algo que se suele pedir mucho en relación con las tablas es crear filas de colores alternos. Se suelen denominar "líneas de cebra". Aunque existe cierta <a href="http://www.alistapart.com/articles/zebrastripingdoesithelp" hreflang="en">polémica sobre si las líneas de cebra ayudan o no realmente al lector</a>, son un estilo muy popular. En la figura 13 se muestra un ejemplo:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_79.gif" alt="Captura de pantalla de tabla con filas de fondos alternos">
+<p>Figura 13. Tabla con "líneas de cebra", filas alternativas de color blanco o gris claro </p>
+</div>
+
+<p>La manera más fácil de aplicar el efecto de las líneas de cebra es añadir una clase para alternar filas de la tabla y después utilizar un selector de CSS contextual para aplicar estilos en las celdas de estas filas. Antes que nada, se añaden las clases "par" (<em>odd</em>) e "impar" (<em>even</em>) a las filas de la tabla, así:</p>
+
+<pre><code>...
+&lt;tr class="odd"&gt;
+...
+&lt;tr class="even"&gt;
+...</code></pre>
+
+<p>Podéis saltaros la fila del título porque ya tiene un estilo propio. Entonces añadid una clase contextual para definir el fondo de todas las celdas de las filas de la clase impar (<em>odd</em>).</p>
+
+<pre><code>.odd th, .odd td {
+   background: #eee;
+}</code></pre>
+
+<p>Ésta es la manera más sencilla de añadir líneas de cebra a una tabla de HTML que funcione en todos los navegadores, pero no es del todo perfecto porque, ¿qué sucede si después añadís una fila a la tabla? Pues que deberíais desplazar todos los nombres de clase <code>odd</code> y <code>even</code> para que todo quedara bien.</p>
+
+<p>Hay dos opciones alternativas:</p>
+
+<ul>
+<li><p>Podéis añadir las clases mediante JavaScript no obstrusivo como se demuestra en <em><a href="http://www.alistapart.com/articles/zebratables/" hreflang="en">A List Apart: Zebra Tables</a></em>. La mayoría de los <em>frameworks</em> de JavaScript también tienen un método adecuado: <em><a href="http://jquery.com/blog/2006/10/18/zebra-table-showdown/" hreflang="en">Zebra Table Showdown</a></em> compara toda una gama de implementaciones.</p></li>                                                      
+
+<li><p>Podéis utilizar el selector de CSS3 <code>:nthchild</code>, pero aún no lo reconocen todos los navegadores. De todos modos, con el paso del tiempo eso irá mejorando.</p></li>
+</ul>
+
+<p>Podéis encontrar más <a href="http://dev.opera.com/articles/view/zebra-striping-tables-with-css3/" hreflang="en">información sobre las líneas de cebra con <code>nth-child</code> en un apartado de dev.opera.com</a>.</p> 
+
+<h3 id="unevencolumns">33.3.2. Parrillas incompletas</h3>
+
+<p>Algunos diseños responden bien con parrilas de aspecto más abierto y menos estructurado. Una variante muy sencilla consiste en eliminar los bordes verticales y dejar que el fondo llene el título, como en la figura 14:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_80.gif" alt="Captura de pantalla de diseño de parrilla abierta.">
+<p>Figura 14. Tabla con bordes gris claro sólo por los extremos y por debajo de cada celda </p>
+</div>
+
+<p>El CSS para conseguir este efecto es:</p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #999;
+   text-align: left;
+   border-collapse: collapse;
+   margin: 0 0 1em 0;
+   caption-side: top;
+}
+caption, td, th {
+   padding: 0.3em;
+}
+th, td {
+   border-bottom: 1px solid #999;
+   width: 25%;
+}
+caption {
+   font-weight: bold;
+   font-style: italic;
+}</code></pre>
+
+<p>También podéis ir un paso más allá y eliminar todos los bordes excepto el borde superior e inferior para dar un poco más de definición a la tabla central. Podéis ver la figura 15:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_81.gif" alt="Captura de pantalla de tabla con bordes en la parte superior e inferior del texto central">
+<p>Figura 15. Tabla con bordes sólo en la parte superior e inferior de la tabla central </p>
+</div>
+
+<p>El CSS para conseguir este efecto es el siguiente:</p>
+
+<pre><code>table {
+   width: 100%;
+   text-align: left;
+   border-collapse: collapse;
+   margin: 0 0 1em 0;
+   caption-side: top;
+}
+caption, td, th {
+   padding: 0.3em;
+}
+tbody {
+   border-top: 1px solid #000;
+   border-bottom: 1px solid #000;
+}
+tbody th, tfoot th {
+   border: 0;
+}
+th.name {
+   width: 25%;
+}
+th.location {
+   width: 20%;
+}
+th.lasteruption {
+   width: 30%;
+}
+th.eruptiontype {
+   width: 25%;
+}
+tfoot {
+   text-align: center;
+   color: #555;
+   font-size: 0.8em;
+}</code></pre>
+
+
+<h3 id="incomplete-grids">33.3.3. Parrillas interiores</h3>
+
+<p>Puede que en ocasiones os interese eliminar el borde exterior pero conservar la parrilla interior de bordes como en la figura 16:</p>
+
+<div class="imagen">
+<img src="./CSS - Estilos de las tablas_files/76510_m6_82.gif" alt="Captura de pantalla de tabla con diseño de parrilla interior">
+<p>Figura 16. Tabla con un diseño de parrilla interior</p>
+</div>
+
+<p>Para aplicar este efecto a todos los navegadores actuales, debéis añadir una clase a las celdas <code>th</code> y <code>td</code> que aparecen en el último lugar de cada fila, así:</p>
+
+<pre><code>...
+&lt;tr&gt;
+   &lt;th scope="col"&gt;Volcano Name&lt;/th&gt;
+   &lt;th scope="col"&gt;Location&lt;/th&gt;
+   &lt;th scope="col"&gt;Last Major Eruption&lt;/th&gt;
+   &lt;th scope="col" <strong>class="last"</strong>&gt;Type of Eruption&lt;/th&gt;
+&lt;/tr&gt;
+...</code></pre>
+
+<p>Entonces utilizamos la clase para eliminar el borde derecho de estas celdas.
+El CSS completo es el siguiente:</p>
+
+<pre><code>table {
+   width: 100%;
+   text-align: left;
+   border-collapse: collapse;
+   margin: 0 0 1em 0;
+   caption-side: top;
+}
+caption, td, th {
+   padding: 0.3em;
+}
+th, td {
+   border-bottom: 1px solid #000;
+   border-right: 1px solid #000;
+}
+th.last, td.last {
+   border-right: 0;
+}
+tfoot th, tfoot td {
+   border-bottom: 0;
+   text-align: center;
+}
+th {
+   width: 25%;
+}</code></pre>
+
+<h3 id="inner-grids">Parrillas interiores con <code>:lastchild</code></h3>
+
+<p>Cuando mejore la compatibilidad de los navegadores, podremos utilizar el pseudoselector <code>:lastchild</code> para conseguir este efecto sin clases. El CSS sería:</p>
+
+<pre><code>table {
+   width: 100%;
+   text-align: left;
+   border-collapse: collapse;
+   margin: 0 0 1em 0;
+   caption-side: top;
+}
+caption, td, th {
+   padding: 0.3em;
+}
+th, td {
+   border-bottom: 1px solid #000;
+   border-right: 1px solid #000;
+}
+<strong>th:lastchild, td:lastchild {</strong>
+   <strong> border-right: 0;</strong>
+<strong>}</strong>
+th {
+   width: 25%;
+}</code></pre>
+
+<p>Esto ya funciona actualmente en las últimas versiones de todos los navegadores (el último navegador significativo que no lo soporta es la versión 8 de IE).</p>
+    
+<h2 id="exercises">Preguntas de repaso</h2>
+
+<p>Preguntas a las que deberíais poder responder:</p>
+
+<ol>
+<li><p>¿Cómo se controla el espacio entre la tabla y los bordes de las celdas?</p></li>
+
+<li><p>¿Qué sucede cuando <code>table</code> (tabla) tiene un color de fondo, las celdas <code>th</code> y <code>td</code> tienen otro color de fondo y <code>border-collapse</code> (superposición de bordes) está establecido en <code>collapse</code> (superposición)?</p></li>
+
+<li><p>¿Cómo pueden establecerse anchos diferentes para cada columna?</p></li>
+</ol>
+
+    
+<h2 id="furtherreading">Lecturas complementarias</h2>
+
+
+<ul>
+           
+<li><p><em><a href="http://www.w3.org/TR/REC-CSS2/tables.html" hreflang="en">W3C: CSS2 Tables</a></em>, sobre todo el apartado que habla sobre las capas de fondo de tabla de CSS2.</p></li>                  
+
+<li><p>"<a href="http://www.alistapart.com/articles/dao/" hreflang="en">A Dao of Web Design - let the web be the web</a>". <em>A List Apart</em>. Un artículo clásico que explica por qué una diferencia de 1 píxel entre navegadores no es realmente importante.</p></li>
+
+<li><p>"<a href="http://www.alistapart.com/articles/zebratables/" hreflang="en">Zebra Tables</a>" y "<a href="http://www.alistapart.com/articles/zebrastripingdoesithelp/" hreflang="en">Zebra striping: Does it Really Help?</a>". En: <em>A List Apart</em>.</p></li>                                                
+
+<li><p>"<a href="http://dev.opera.com/articles/view/zebra-striping-tables-with-css3/" hreflang="en">Zebra striping tables with CSS3</a>"</p></li>                                                                         
+
+<li><p>"<a href="http://dev.opera.com/articles/view/supporting-ie-with-conditional-comments/" hreflang="en">Supporting IE with conditional comments</a>"</p></li>                                                                        
+
+<li><p>"<a href="http://veerle.duoh.com/blog/comments/a_css_styled_table/" hreflang="en">A CSS styled table</a>" y "<a href="http://veerle.duoh.com/index.php/blog/comments/a_css_styled_calendar/" hreflang="en">A CSS styled calendar</a>". En: <em>Veerle's blog</em></p></li>                                                   
+
+
+<li><p>"<a href="http://icant.co.uk/csstablegallery/index.php" hreflang="en">CSS Table Gallery</a>" muestra una serie de diseños para tablas (aunque hay que tener en cuenta que muchas no cumplen las <a href="http://www.w3.org/TR/AERT#color" hreflang="en">recomendaciones de contraste de color del W3C</a>).</p></li>
+</ul>       
+
+
+ </div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es"><img src="./CSS - Estilos de las tablas_files/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons"></a></div>
+<div id="logo_text">Los contenidos recogidos en este artículo están sujetos a una licencia <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.es">Creative Commons<br> Reconocimiento, No comercial - Compartir bajo la misma licencia 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+
+<div id="peu">
+		<a rel="prev" href="http://mosaic.uoc.edu/ac/le/es/m6/ud6/index.html" title="Ir al artículo anterior" accesskey="8"><img src="./CSS - Estilos de las tablas_files/fletxa_izq_inv.gif" alt="Ir al artículo anterior"></a> <strong>:</strong>
+		<a rel="index" href="http://mosaic.uoc.edu/ac/le/es/index.html" title="Ir al índice" accesskey="0"><img src="./CSS - Estilos de las tablas_files/indice_inv.gif" alt="Ir al índice"></a> <strong>:</strong>
+		<a rel="next" href="http://mosaic.uoc.edu/ac/le/es/m6/ud8/index.html" title="Ir al artículo siguiente" accesskey="9"><img src="./CSS - Estilos de las tablas_files/fletxa_der_inv.gif" alt="Ir al artículo siguiente"></a>
+</div>
+
+<script src="./CSS - Estilos de las tablas_files/urchin.js.descarga" type="text/javascript">
+</script>
+
+<script type="text/javascript">
+_uacct = "UA-1571980-1";
+_userv=2;
+_uhash = "off";
+_udn="uoc.edu";
+_ulink = 1;
+_ucto = 2592000;
+_uRno[0] = "uoc.edu";
+urchinTracker();
+</script>
+
+</body></html>

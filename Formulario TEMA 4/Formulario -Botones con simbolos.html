@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Formulario</title>
+	<style>
+		.botones {
+			/*La caja*/
+			display: inline-block;
+			border: 1px solid #000;
+			padding: .2em .5em;
+			margin:0 4em 0 0;
+			/*El degradado*/
+			background-image: -moz-linear-gradient(top, #fff 0%, #eee 100%);
+			background-image: -webkit-linear-gradient(top, #fff 0%, #eee 100%);
+			background-image: -o-linear-gradient(top, #fff 0%, #eee 100%);
+			background-image: linear-gradient(top, #fff 0%, #eee 100%);
+			/*Los bordes redondeados*/
+			-moz-border-radius: .3em;
+			-webkit-border-radius: .3em;
+			border-radius: .3em;
+			/*El texto*/
+			font-weight: bold;
+			font-size: 1em;
+			text-decoration: none;
+			color: black;
+		}
+		
+		.botones:before {
+			font-size: 1em;
+			padding: 0 .5em 0 0;
+		}
+		
+		.validar:before {
+			content: "\2714";
+		}
+		
+		.anular:before {
+			content: "\2717";
+		}
+	</style>
+</head>
+<body>
+	<form id="registro" method="#" action="#">
+		<p>
+		<label for="nombre">Nombre: </label>
+		<input type="text" name="nombre" id="nombre" />
+		</p>
+		<p>
+		<label for="apellidos">Apellidos: </label>
+		<input type="text" name="apellidos" id="apellidos" />
+		</p>
+		<p>
+		<a href="#" class="botones validar">Confirme<a/>
+		<a href="#" class="botones anular">Anule<a/>
+		</p>
+	</form>
+</body>
+</html>

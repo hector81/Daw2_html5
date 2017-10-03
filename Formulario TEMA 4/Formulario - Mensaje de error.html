@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Formulario</title>
+	<style>
+		span.noValido {
+			display: none;
+			position: relative;
+			left: 250px;
+			top: 5px;
+			width: 230px;
+			border: solid 1px red;
+			background-color: lightgoldenrodyellow;
+			padding: 3px;
+			text-align: center;
+		}
+		
+		input:focus:invalid + span.noValido {
+			display: block;
+		}
+		
+		span.valido {
+			display: none;
+			position: relative;
+			left: 250px;
+			top: 5px;
+			width: 230px;
+			border: solid 1px green;
+			background-color: lightgreen;
+			padding: 3px;
+			text-align: center;
+		}
+		
+		input:focus:invalid ~ span.noValido, input:focus:valid ~ span.valido {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<p>
+			<label for="nombre">Su nombre y apellidos: </label>
+			<input type="text" id="nombre" required />
+			<span class="noValido">Este campo no puede dejarse
+			vacío</span>
+		</p>
+		<p>
+			<label for="email">Su e-mail: </label>
+			<input type="email" id="email" required />
+			<span class="noValido">La dirección de e-mail no es
+			correcta</span>
+			<span class="valido">La dirección e-mail es correcta</span>
+		</p>
+	</form>
+</body>
+</html>

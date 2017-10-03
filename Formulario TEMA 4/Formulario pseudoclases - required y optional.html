@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Formulario</title>
+	<style>
+		input:required {
+			background-color: lightcoral;
+		}
+		
+		input:optional {
+			background-color: lightgoldenrodyellow;
+		}
+		
+		input#enviar {
+			background: none;
+		}
+	</style>
+</head>
+<body>
+	<form id="forml" method="#" action="#">
+		<p>
+		<label for="nombre">Su nombre y apellidos: </label>
+		<input type="text" name="nombre" id="nombre" required />
+		</p>
+		<p>
+		<label for="edad">Su edad: </label>
+		<input type="text" name="edad" id="edad" />
+		</p>
+		<p>
+		<input type="submit" id="enviar" value="Enviar" />
+		</p>
+	</form>
+</body>
+</html>

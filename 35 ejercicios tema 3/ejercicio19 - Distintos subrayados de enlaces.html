@@ -1,0 +1,62 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Ejercicio 19: Enlaces diferentes subrayados</title>
+	<style type="text/css">
+		a {
+			margin: 1em 0;
+			float: left;
+			clear: left;
+			padding: 2px;
+		}
+		
+		a.porDefecto{
+			/* no hace falta poner nada ,viene subrayado por defecto */
+			text-decoration: underline;
+		}
+		
+		a.subrayadoColor{
+			border-bottom: medium solid #CC0000;
+			text-decoration:none;
+		}
+		
+		a.anchoSubrayado{
+			 border-bottom: thick solid; 
+			 text-decoration:none;
+		}
+		
+		a.separado{
+			border-bottom: 1px solid; 
+			padding-bottom: .6em;
+			text-decoration:none;
+		}
+		
+		a.discontinuo{
+			border-bottom: thin dashed;
+			text-decoration:none;
+		}
+
+		a:hover {
+			text-decoration: none;
+			background-color: #CC0000;
+			color: #FFF;
+		}
+		a:visited {
+			color: #CCC;
+		}
+	</style>
+</head>
+
+<body>
+<a href="#" class="porDefecto">Enlace con el estilo por defecto</a>
+
+<a href="#" class="subrayadoColor">Enlace un subrayado</a>
+
+<a href="#" class="anchoSubrayado">Enlace con un subrayado muy ancho</a>
+
+<a href="#" class="separado">Enlace con un subrayado muy separado</a>
+
+<a href="#" class="discontinuo">Enlace con un subrayado discontinuo</a>
+</body>
+</html>

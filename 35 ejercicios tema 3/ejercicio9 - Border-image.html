@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 9. Border-image</title>
+	<style type="text/css">
+		#round {
+			border: 10px solid transparent;
+			padding: 15px;
+			margin :20px 1000px 20px 0px;
+			-webkit-border-image: url(imagenes/border.png) 30 round; /* Safari 3.1-5 */
+			-o-border-image: url(imagenes/border.png) 30 round; /* Opera 11-12.1 */
+			border-image: url("imagenes/border.png") 30 round;
+		}
+		
+		#stretch {
+			border: 10px solid transparent;
+			padding: 15px;
+			margin :20px 1000px 20px 0px;
+			-webkit-border-image: urlimagenes/(border.png) 30 stretch; /* Safari 3.1-5 */
+			-o-border-image: url(imagenes/border.png) 30 stretch; /* Opera 11-12.1 */
+			border-image: url("imagenes/border.png") 30 stretch;
+		}
+	</style>
+
+</head>
+<body>
+
+<p><b>Nota:</b> Internet Explorer no soporta la propiedad border-image.</p>
+<p>La propiedad border-image especifica usar una imagen como borde.</p>
+
+<div id="round"><p>Aquí, la imagen se repite para rellenar el área.</p></div>
+<br>
+<div id="stretch"><p>Aquí, la imagen se expande para rellenar el área.</p></div>
+
+</body>
+</html>

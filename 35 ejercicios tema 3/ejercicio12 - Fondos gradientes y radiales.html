@@ -1,0 +1,95 @@
+<!--- 12. Diseña cuatro contenedores usando degradados; por ejemplo, uno para la
+cabecera, otro para un menú horizontal debajo de la cabecera, otro para el pie y
+otro para el contenido principal de la página. Deberás crear sendos degradados
+para cada uno de ellos de tal forma que se puedan visualizar desde Firefox y
+Chrome. Los degradados deben cumplir las siguientes condiciones:
+a. Al menos uno de ellos deberá ser radial.
+b. Deberás utilizar tres o más colores para cada uno de ellos.
+c. Deberás utilizar distintas direcciones para cada uno de los degradados
+lineales. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Ejercicio 12</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding:0;
+		}
+		body {
+			background-color: white;
+		}
+		
+		h1,h2 {
+			color: black;
+			text-align: center;
+		}
+		
+		header {
+			background: -moz-linear-gradient(180deg, rgba(71,191,131,1) 0%, rgba(71,191,131,1) 25%, rgba(128,0,0,1) 73%, rgba(0,0,0,1) 100%); /* ff3.6+ */
+			background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(27%, rgba(128,0,0,1)), color-stop(75%, rgba(71,191,131,1)), color-stop(100%, rgba(71,191,131,1))); /* safari4+,chrome */
+			background: -webkit-linear-gradient(180deg, rgba(71,191,131,1) 0%, rgba(71,191,131,1) 25%, rgba(128,0,0,1) 73%, rgba(0,0,0,1) 100%); /* safari5.1+,chrome10+ */
+			background: -o-linear-gradient(180deg, rgba(71,191,131,1) 0%, rgba(71,191,131,1) 25%, rgba(128,0,0,1) 73%, rgba(0,0,0,1) 100%); /* opera 11.10+ */
+			background: -ms-linear-gradient(180deg, rgba(71,191,131,1) 0%, rgba(71,191,131,1) 25%, rgba(128,0,0,1) 73%, rgba(0,0,0,1) 100%); /* ie10+ */
+			background: linear-gradient(270deg, rgba(71,191,131,1) 0%, rgba(71,191,131,1) 25%, rgba(128,0,0,1) 73%, rgba(0,0,0,1) 100%); /* w3c */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#47BF83',GradientType=1 ); /* ie6-9 */
+			min-height: 400px;
+		}
+		
+		nav {
+			background: -moz-linear-gradient(45deg, rgba(0,128,128,1) 0%, rgba(255,255,255,1) 25%, rgba(5,193,255,1) 50%, rgba(255,255,255,1) 75%, rgba(0,87,87,1) 100%); /* ff3.6+ */
+			background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(0,128,128,1)), color-stop(25%, rgba(255,255,255,1)), color-stop(50%, rgba(5,193,255,1)), color-stop(75%, rgba(255,255,255,1)), color-stop(100%, rgba(0,87,87,1))); /* safari4+,chrome */
+			background: -webkit-linear-gradient(45deg, rgba(0,128,128,1) 0%, rgba(255,255,255,1) 25%, rgba(5,193,255,1) 50%, rgba(255,255,255,1) 75%, rgba(0,87,87,1) 100%); /* safari5.1+,chrome10+ */
+			background: -o-linear-gradient(45deg, rgba(0,128,128,1) 0%, rgba(255,255,255,1) 25%, rgba(5,193,255,1) 50%, rgba(255,255,255,1) 75%, rgba(0,87,87,1) 100%); /* opera 11.10+ */
+			background: -ms-linear-gradient(45deg, rgba(0,128,128,1) 0%, rgba(255,255,255,1) 25%, rgba(5,193,255,1) 50%, rgba(255,255,255,1) 75%, rgba(0,87,87,1) 100%); /* ie10+ */
+			background: linear-gradient(45deg, rgba(0,128,128,1) 0%, rgba(255,255,255,1) 25%, rgba(5,193,255,1) 50%, rgba(255,255,255,1) 75%, rgba(0,87,87,1) 100%); /* w3c */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005757', endColorstr='#008080',GradientType=1 ); /* ie6-9 */
+			min-height: 400px;
+		}
+		
+		section {
+			background: -moz-linear-gradient(313deg, rgba(13,255,0,1) 0%, rgba(255,255,0,1) 50%, rgba(255,0,0,1) 100%); /* ff3.6+ */
+			background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(13,255,0,1)), color-stop(50%, rgba(255,255,0,1)), color-stop(100%, rgba(255,0,0,1))); /* safari4+,chrome */
+			background: -webkit-linear-gradient(313deg, rgba(13,255,0,1) 0%, rgba(255,255,0,1) 50%, rgba(255,0,0,1) 100%); /* safari5.1+,chrome10+ */
+			background: -o-linear-gradient(313deg, rgba(13,255,0,1) 0%, rgba(255,255,0,1) 50%, rgba(255,0,0,1) 100%); /* opera 11.10+ */
+			background: -ms-linear-gradient(313deg, rgba(13,255,0,1) 0%, rgba(255,255,0,1) 50%, rgba(255,0,0,1) 100%); /* ie10+ */
+			background: linear-gradient(137deg, rgba(13,255,0,1) 0%, rgba(255,255,0,1) 50%, rgba(255,0,0,1) 100%); /* w3c */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0DFF00', endColorstr='#ff0000',GradientType=0 ); /* ie6-9 */
+			min-height: 400px;
+		}
+		
+		footer {
+			background: -moz-radial-gradient(center, ellipse cover, rgba(255,0,255,1) 0%, rgba(5,193,255,1) 48%, rgba(0,51,51,1) 100%); /* ff3.6+ */
+			background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,0,255,1)), color-stop(48%, rgba(5,193,255,1)), color-stop(100%, rgba(0,51,51,1))); /* safari4+,chrome */
+			background:-webkit-radial-gradient(center, ellipse cover, rgba(255,0,255,1) 0%, rgba(5,193,255,1) 48%, rgba(0,51,51,1) 100%); /* safari5.1+,chrome10+ */
+			background: -o-radial-gradient(center, ellipse cover, rgba(255,0,255,1) 0%, rgba(5,193,255,1) 48%, rgba(0,51,51,1) 100%); /* opera 11.10+ */
+			background: -ms-radial-gradient(center, ellipse cover, rgba(255,0,255,1) 0%, rgba(5,193,255,1) 48%, rgba(0,51,51,1) 100%); /* ie10+ */
+			background:radial-gradient(ellipse at center, rgba(255,0,255,1) 0%, rgba(5,193,255,1) 48%, rgba(0,51,51,1) 100%); /* w3c */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff00ff', endColorstr='#003333',GradientType=1 ); /* ie6-9 */
+			min-height: 400px;
+		}
+		
+	</style>
+</head>
+	<!-- HEADER  -->
+    <header>
+       <h1>Cabecera </h1>
+    </header>
+	
+	<!-- NAV -->
+	<nav>
+	    <h2>Menu</h2>
+	</nav>
+	
+	<!-- SECTION 1-->
+    <section>
+		<h2>Contenedor </h2>
+    </section>
+	
+	<!-- FOOTER -->
+    <footer>
+        <h2>Pie</h2>
+    </footer>
+</body>
+</html>

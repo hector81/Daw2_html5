@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Ejercicio 10. Bordes imaginativos</title>
+	<style type="text/css">
+		body {
+			background-color: rgba(44, 153, 166, 0.4);
+		}
+		
+		h2 {
+			color: blue;
+		}
+		
+		#art1 {
+			padding: 20px;
+			background-color: white;
+			border-radius: 50px;
+		}
+		
+		#art1 p {
+			background-color: white;
+			border: 50px solid transparent;
+			padding: 15px;
+			height: 200px;
+			margin :20px 20px 20px 0px;
+			border-image: url("imagenes/border10.png") 50 round;
+		}
+		
+		#art2 {
+			background-color: white;
+			border: 50px solid transparent;			
+			padding: 15px;
+			margin :20px 20px 20px 0px;
+			height: 200px;
+			border-image: url("imagenes/borde4.png") 50 round;
+		}
+		
+		img {
+			border-radius: 50px;
+		}
+	</style>
+</head>
+<body>
+	<h2>Ejercicio 10. Bordes imaginativos</h2>
+		<article id="art1">
+			<p>Esta párrafo está en un artículo con un borde generado mediante una imagen</p>
+		</article>
+		<article id="art2">
+			<p>Esta párrafo está en un artículo con un borde generado mediante una imagen</p>
+		</article>
+		<article>
+		<img src="imagenes/border1.png" alt="Imagen de borde"/>
+		</article>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Ejercicio 18: Enlaces diferente</title>
+	<style type="text/css">
+		a {
+			margin: 1em 0;
+			float: left;
+			clear: left;
+			padding: 2px;
+		}
+		
+		a.porDefecto{
+			/* no hace falta poner nada ,viene subrayado por defecto */
+			text-decoration: underline;
+		}
+		
+		a.colorRojo{
+			color: red;
+		}
+		
+		a.sinSubrayado{
+			 text-decoration:none; 
+		}
+		
+		a.muyImportante{
+			font-size: 1.5em;
+		}
+		
+		a.estiloRaro{
+			text-decoration: overline;
+		}
+
+		a:hover {
+			text-decoration: none;
+			background-color: #CC0000;
+			color: #FFF;
+		}
+		a:visited {
+			color: #CCC;
+		}
+	</style>
+</head>
+
+<body>
+<a href="#" class="porDefecto">Enlace con el estilo por defecto</a>
+
+<a href="#" class="colorRojo">Enlace de color rojo</a>
+
+<a href="#" class="sinSubrayado">Enlace sin subrayado</a>
+
+<a href="#" class="muyImportante">Enlace muy importante</a>
+
+<a href="#" class="estiloRaro">Enlace con un estilo raro</a>
+</body>
+</html>

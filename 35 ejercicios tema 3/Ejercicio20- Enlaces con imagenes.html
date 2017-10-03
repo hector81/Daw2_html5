@@ -1,0 +1,47 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Ejercicio 20: Enlaces con imagenes</title>
+	<style type="text/css">
+		a { 
+			margin: 1em 0;
+			float: left;
+			clear: left;
+			padding: 2px;
+		}
+ 
+		.rss {
+			background: url("imagenes/rss.gif") no-repeat left;
+			 padding: 0 0 0 30px;
+			 color: black;
+		}
+		 
+		.pdf {
+			background: url("imagenes/pdf.png") no-repeat left;
+			 padding: 0 0 0 30px;
+			 color: black;
+		}
+		
+		a:hover {
+			text-decoration: none;
+			background-color: #CC0000;
+			color: black
+		}
+		
+		a:visited {
+			color: orange;
+		}
+	</style>
+</head>
+
+<body>
+
+	<a href="#">Enlace con el estilo por defecto</a>
+	 
+	<a class="rss" href="#">Enlace a un archivo RSS</a>
+	 
+	<a class="pdf" href="#">Enlace a un documento PDF</a>
+
+</body>
+</html>

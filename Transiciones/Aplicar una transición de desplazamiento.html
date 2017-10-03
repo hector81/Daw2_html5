@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Aplicar una transición de desplazamiento</title>
+	<style>	
+		p.texto {
+			color: white;
+			font-weight: bold;
+			text-align: center;
+			line-height: 30px;
+		}
+
+		#desplazamiento {
+			position: absolute;
+			left: 20px;
+			top: 20px;
+			-moz-transition-property: left;
+			-moz-transition-duration: 2s;
+			-webkit-transition-property: left;
+			-webkit-transition-duration: 2s;
+			-o-transition-property: left;
+			-o-transition-duration: 2s;
+			transition-property: left;
+			transition-duration: 2s;
+		}
+		
+		#desplazamiento:hover {
+			left: 40px;
+		}
+		
+	</style>
+</head>
+<body>
+
+	
+	<div class="multiple">
+		<div id="desplazamiento"><img src="leon.png" alt="León" /></div>
+	</div>
+
+</body>
+</html>
+

@@ -1,0 +1,165 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Animacion</title>
+	<style type="text/css">
+			body {
+                background-color: #eee;
+            }
+
+            .contenedor {
+                margin-top: 150px;
+                perspective: 1000px;
+                perspective-origin: 50% 50%;
+                background-image: linear-gradient(135deg,#ccc 25%,#ddd 25%,#ddd 50%, #ccc 50%, #ccc 75%,#ddd 75%,#ddd 100%);
+                background-size: 80px 80px;
+                border-top: solid 3px #999;
+                border-bottom: solid 3px #999;
+                /* Background stripes animation */
+                animation: bganim 3s linear 2s infinite;
+            }
+
+            @keyframes bganim {
+                from {
+                    background-position: 0px;
+                }
+
+                to {
+                    background-position: 80px;
+                }
+            }
+
+            .cubo {
+                margin: auto;
+                position: relative;
+                height: 200px;
+                width: 200px;
+                transform-style: preserve-3d;
+            }
+
+			.cubo div {
+				position: absolute;
+				padding: 10px;
+				box-sizing: border-box;
+				height: 100%;
+				width: 100%;
+				opacity: 0.9;
+				background-color: #000;
+				border: solid 1px #eee;
+				color: #fff;
+				font: 10px arial;
+				transition: transform 0.2s ease-in;
+			}
+
+            .adelante {
+                transform: translateZ(100px);
+				background: url("naranja.jpg");
+            }
+
+            .atras {
+                transform: translateZ(-100px) rotateY(180deg);
+				background: url("rosa.jpg");
+            }
+
+            .derecha {
+                transform: rotateY(-270deg) translateX(100px);
+                transform-origin: top right;
+				background: url("amarillo.jpg");
+            }
+
+            .izquierda {
+                transform: rotateY(270deg) translateX(-100px);
+                transform-origin: center left;
+				background: url("verde.jpg");
+            }
+
+            .arriba {
+                transform: rotateX(-270deg) translateY(-100px);
+                transform-origin: top center;
+				background: url("azul.jpg");
+            }
+
+            .abajo {
+                transform: rotateX(270deg) translateY(100px);
+                transform-origin: bottom center;
+				background: url("rojo.jpg");
+            }
+
+            @keyframes rotate {
+                from {
+                    transform: rotateX(0deg) rotateY(0deg);
+                }
+
+                to {
+                    transform: rotateX(360deg) rotateY(360deg);
+                }
+            }
+
+            .cubo {
+                animation: rotate 20s infinite linear;
+            }
+
+            .contenedor:hover .adelante {
+                transform: translateZ(200px);
+            }
+
+            .contenedor:hover .atras {
+                transform: translateZ(-200px) rotateY(180deg);
+            }
+
+            .contenedor:hover .derecha {
+                transform: rotateY(-270deg) translateZ(100px) translateX(100px);
+            }
+
+            .contenedor:hover .izquierda {
+                transform: rotateY(270deg) translateZ(100px) translateX(-100px);
+            }
+
+            .contenedor:hover .arriba {
+                transform: rotateX(-270deg) translateZ(100px) translateY(-100px);
+            }
+
+            .contenedor:hover .abajo {
+                transform: rotateX(270deg) translateZ(100px) translateY(100px);
+            }
+	</style>
+	
+</head>
+
+<body>
+	
+	<div class="contenedor">
+		<div class="cubo">
+				<div class="adelante">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+				</div>
+				<div class="atras">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+				</div>
+				<div class="derecha">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+				</div>
+				<div class="izquierda">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+								 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+								 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+				</div>
+				<div class="arriba">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+				</div>
+				<div class="abajo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+				</div>		   
+		</div>
+	</div>
+</body>
+</html>

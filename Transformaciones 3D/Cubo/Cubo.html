@@ -1,0 +1,145 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="es">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Animacion</title>
+	<style type="text/css">
+		body {
+			background: grey;
+		}
+
+		#container {
+		    margin: 150px auto;
+		    -webkit-perspective: 800px;
+			-moz-perspective: 800px;
+			perspective: 800px;
+		}
+		
+		#giro {
+			margin: 20px auto;
+			width: 200px;
+			padding: 30px;
+			-webkit-animation: giro 4s linear infinite;
+			-moz-animation: giro 4s linear infinite;
+			-ms-animation: giro 4s linear infinite;
+			animation: giro 4s linear infinite;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+		
+		@-webkit-keyframes giro {
+			0% { transform: rotateX(-45deg) rotateY(0deg); }
+			50% { transform: rotateX(45deg) rotateY(360deg); }
+			100% { transform: rotateX(-45deg) rotateY(720deg); }	
+		}
+		@-moz-keyframes giro {
+			0% { transform: rotateX(-45deg) rotateY(0deg); }
+			50% { transform: rotateX(45deg) rotateY(360deg); }
+			100% { transform: rotateX(-45deg) rotateY(720deg); }		
+		}
+		@-ms-keyframes giro {
+			0% { transform: rotateX(-45deg) rotateY(0deg); }
+			50% { transform: rotateX(45deg) rotateY(360deg); }
+			100% { transform: rotateX(-45deg) rotateY(720deg); }	
+		}
+		@keyframes giro {
+			0% { transform: rotateX(-45deg) rotateY(0deg); }
+			50% { transform: rotateX(45deg) rotateY(360deg); }
+			100% { transform: rotateX(-45deg) rotateY(720deg); }		
+		}
+			
+		#giro div {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			font-weight: bold;
+			font-size: 120px;
+			text-align: center;
+		}
+		
+		#giro div#uno {
+			background: url("naranja.jpg");
+		}
+		
+		#giro div#dos {
+			background: url("amarillo.jpg");
+		}
+		
+		#giro div#tres {
+			background: url("rojo.jpg");
+		}
+		
+		#giro div#cuatro {
+			background: url("azul.jpg");
+		}
+		
+		#giro div#cinco {
+			background: url("verde.jpg");
+		}
+		
+		#giro div#seis {
+			background: url("rosa.jpg");
+		}
+		
+		#uno:nth-child(1) {
+			-webkit-transform: translateZ(100px);
+			-moz-transform: translateZ(100px);
+			-ms-transform: translateZ(100px);
+			transform:  translateZ(100px);
+		}
+		#dos:nth-child(2) {
+			-webkit-transform: rotateY(180deg) translateZ(100px);
+			-moz-transform: rotateY(180deg) translateZ(100px);
+			-ms-transform: rotateY(180deg) translateZ(100px);
+			transform: rotateY(180deg) translateZ(100px);
+		}
+		#tres:nth-child(3) {
+			-webkit-transform: rotateY(-90deg) translateZ(100px);
+			-moz-transform: rotateY(-90deg) translateZ(100px);
+			-ms-transform: rotateY(-90deg) translateZ(100px);
+			transform: rotateY(-90deg) translateZ(100px);
+		}
+		#cuatro:nth-child(4) {
+			-webkit-transform: rotateY(90deg) translateZ(100px);
+			-moz-transform: rotateY(90deg) translateZ(100px);
+			-ms-transform: rotateY(90deg) translateZ(100px);
+			transform: rotateY(90deg) translateZ(100px);
+		}
+		
+		#cinco:nth-child(5) {
+			-webkit-transform: rotateX(90deg) translateZ(100px);
+			-moz-transform: rotateX(90deg) translateZ(100px);
+			-ms-transform: rotateX(90deg) translateZ(100px);
+			transform: rotateX(90deg) translateZ(100px);
+		}
+		
+		#seis:nth-child(6) {
+			-webkit-transform: rotateX(-90deg) translateZ(100px);
+			-moz-transform: rotateX(-90deg) translateZ(100px);
+			-ms-transform: rotateX(-90deg) translateZ(100px);
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+	</style>
+	
+</head>
+
+<body>
+	
+	<div id="container">
+		<div id="giro">
+			<div id="uno">1</div>
+			<div id="dos">2</div>
+			<div id="tres">3</div>
+			<div id="cuatro">4</div>
+			<div id="cinco">5</div>
+			<div id="seis">6</div>
+		</div>
+	</div>
+</body>
+</html>

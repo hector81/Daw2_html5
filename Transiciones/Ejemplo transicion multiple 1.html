@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Ejercicio</title>
+	<style>	
+		p.texto {
+			color: white;
+			font-weight: bold;
+			text-align: center;
+			line-height: 30px;
+		}
+
+		#multiple {
+			position: absolute;
+			left: 20px;
+			width: 200px;
+			height:60px;
+			background-color: darkblue;
+			/* CON DELAY*/
+			/*-moz-transition: width 3s linear, height 2s linear 3s, opacity 4s linear 6s;
+			-webkit-transition: width 3s linear, height 2s linear 3s, opacity 4s linear 6s;
+			-o-transition: width 3s linear, height 2s linear 3s, opacity 4s linear 6s;
+			transition: width 3s linear, height 2s linear 3s, opacity 4s linear 6s;*/
+			
+			/* SIN DELAY DELAY*/
+			-moz-transition: width 3s linear, height 2s linear, opacity 4s linear;
+			-webkit-transition: width 3s linear, height 2s linear, opacity 4s linear;
+			-o-transition: width 3s linear, height 2s linear, opacity 4s linear;
+			transition: width 3s linear, height 2s linear, opacity 4s linear;
+		}
+	
+		#multiple:hover {
+			width: 400px;
+			height: 120px;
+			opacity: 1;
+			background-color:red;
+		}
+	</style>
+</head>
+<body>
+
+	
+	<div class="multiple">
+			<p class="texto">En un lugar de la Mancha…</p>
+	</div>
+
+</body>
+</html>
+

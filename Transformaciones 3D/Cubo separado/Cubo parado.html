@@ -1,0 +1,141 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Animacion</title>
+	<style type="text/css">
+		body {
+			background: grey;
+		}
+
+		#contenedor {
+		    margin: 150px auto;
+		    -webkit-perspective: 800px;
+			-moz-perspective: 800px;
+			perspective: 800px;
+		}
+		#cubo {
+			margin: 20px auto;
+			width: 200px;
+			padding: 30px;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-transform: rotateX(-30deg) rotateY(30deg);
+			-moz-transform: rotateX(-30deg) rotateY(30deg);
+			-ms-transform: rotateX(-30deg) rotateY(30deg);
+			transform: rotateX(-30deg) rotateY(-30deg);
+		}
+			
+		#cubo div {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			font-weight: bold;
+			font-size: 12px;
+			text-align: left;
+		}
+		
+		#cubo div#uno {
+			background: url("naranja.jpg");
+		}
+		
+		#cubo div#dos {
+			background: url("amarillo.jpg");
+		}
+		
+		#cubo div#tres {
+			background: url("rojo.jpg");
+		}
+		
+		#cubo div#cuatro {
+			background: url("azul.jpg");
+		}
+		
+		#cubo div#cinco {
+			background: url("verde.jpg");
+		}
+		
+		#cubo div#seis {
+			background: url("rosa.jpg");
+		}
+		
+		#uno:nth-child(1) {
+			-webkit-transform: translateZ(100px);
+			-moz-transform: translateZ(100px);
+			-ms-transform: translateZ(100px);
+			transform:  translateZ(100px);
+		}
+		#dos:nth-child(2) {
+			-webkit-transform: rotateY(180deg) translateZ(100px);
+			-moz-transform: rotateY(180deg) translateZ(100px);
+			-ms-transform: rotateY(180deg) translateZ(100px);
+			transform: rotateY(180deg) translateZ(100px);
+		}
+		#tres:nth-child(3) {
+			-webkit-transform: rotateY(-90deg) translateZ(100px);
+			-moz-transform: rotateY(-90deg) translateZ(100px);
+			-ms-transform: rotateY(-90deg) translateZ(100px);
+			transform: rotateY(-90deg) translateZ(100px);
+		}
+		#cuatro:nth-child(4) {
+			-webkit-transform: rotateY(90deg) translateZ(100px);
+			-moz-transform: rotateY(90deg) translateZ(100px);
+			-ms-transform: rotateY(90deg) translateZ(100px);
+			transform: rotateY(90deg) translateZ(100px);
+		}
+		
+		#cinco:nth-child(5) {
+			-webkit-transform: rotateX(90deg) translateZ(100px);
+			-moz-transform: rotateX(90deg) translateZ(100px);
+			-ms-transform: rotateX(90deg) translateZ(100px);
+			transform: rotateX(90deg) translateZ(100px);
+		}
+		
+		#seis:nth-child(6) {
+			-webkit-transform: rotateX(-90deg) translateZ(100px);
+			-moz-transform: rotateX(-90deg) translateZ(100px);
+			-ms-transform: rotateX(-90deg) translateZ(100px);
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+	</style>
+	
+</head>
+
+<body>
+	
+	<div id="contenedor">
+		<div id="cubo">
+			<div id="uno">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+						  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+						  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+			</div>
+			<div id="dos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+						  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+						  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+			</div>
+			<div id="tres">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+						   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+						   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+			</div>
+			<div id="cuatro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+			</div>
+			<div id="cinco">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+			</div>
+			<div id="seis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+						   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+						   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in tortor at nisi egestas laoreet varius a quam.
+			</div>
+		</div>
+	</div>
+</body>
+</html>

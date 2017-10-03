@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid black;
+    background-color: green;
+	width : 800px;
+	height:270px;
+}
+</style>
+</head>
+<body>
+<script>
+
+var imagenBarco;
+var fondoMar;
+var mina1,mina2,mina3,mina4,mina5,mina6,mina7;
+
+var comprobar = false;
+var posicionMina1, posicionMina2,posicionMina3,posicionMina4,posicionMina5,posicionMina6,posicionMina7;
+var contador=0;
+var movimientoBarcoX =10;
+var movimientoBarcoY=120;
+var posicionMinasX1 =0;
+var posicionMinasY1=0;
+var posicionMinasX2 =0;
+var posicionMinasY2=0;
+var posicionMinasX3 =0;
+var posicionMinasY3=0;
+var posicionMinasX4 =0;
+var posicionMinasY4=0;
+var posicionMinasX5 =0;
+var posicionMinasY5=0;
+var posicionMinasX6 =0;
+var posicionMinasY6=0;
+var posicionMinasX7 =0;
+var posicionMinasY7=0;
+var puntosConseguidos = 0;
+var puntosConseguidosDivididos=0;
+var acelerar=0;
+var medir= 1;
+
+//para generar posiciones aleatorias de minas
+function generarPosicionesAleatoriasMinas(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+//cargar nada mas empieza a moverse
+window.onload = function () {  
+    fondoMar = new component(800, 270, "mar2.jpg", 0, 0, "background");   	
+    pantalla.start();//carga la pantalla
+	window.addEventListener('keydown', moverTecla, true);	
+};
+
+//funcion para parar ,reiniciar y empezar el juego
+function empezarJuego() {
+	comprobar = !comprobar;	
+	if(comprobar == true){
+		imagenBarco = new component(60, 30, "logo.png", movimientoBarcoX, movimientoBarcoY, "image");
+		mina1 = new component(20, 20, "mina.png", generarPosicionesAleatoriasMinas(300,800),generarPosicionesAleatoriasMinas(10,200), "mina1");
+		mina2 = new component(20, 20, "mina.png", generarPosicionesAleatoriasMinas(300,800),generarPosicionesAleatoriasMinas(10,200), "mina2");
+		mina3 = new component(20, 20, "mina.png", generarPosicionesAleatoriasMinas(300,800),generarPosicionesAleatoriasMinas(10,200), "mina3");
+		mina4 = new component(20, 20, "mina.png", generarPosicionesAleatoriasMinas(300,800),generarPosicionesAleatoriasMinas(10,200), "mina4");
+		mina5 = new component(20, 20, "mina.png", generarPosicionesAleatoriasMinas(300,800),generarPosicionesAleatoriasMinas(10,200), "mina5");
+		mina6 = new component(20, 20, "mina.png", generarPosicionesAleatoriasMinas(300,800),generarPosicionesAleatoriasMinas(10,270), "mina6");
+		mina7 = new component(20, 20, "mina.png", generarPosicionesAleatoriasMinas(300,800),generarPosicionesAleatoriasMinas(10,270), "mina7");
+		document.formulario.boton.value='Reiniciar';
+		
+	}else{
+		if(contador == 100){
+			fondoMar = new component(800, 270, "mar2.jpg", 0, 0, "background"); 
+		}else{
+			fondoMar = new component(800, 270, "mar2.jpg", 0, 0, "background");  
+		}
+		imagenBarco = new component(60, 30, "logo.png", 0, 0, "image");
+		mina1 = new component(0, 0, "", generarPosicionesAleatoriasMinas(0,0),generarPosicionesAleatoriasMinas(0,0), "");
+		mina2 = new component(0, 0, "", generarPosicionesAleatoriasMinas(0,0),generarPosicionesAleatoriasMinas(0,0), "");
+		mina3 = new component(0, 0, "", generarPosicionesAleatoriasMinas(0,0),generarPosicionesAleatoriasMinas(0,0), "");
+		mina4 = new component(0, 0, "", generarPosicionesAleatoriasMinas(0,0),generarPosicionesAleatoriasMinas(0,0), "");
+		mina5 = new component(0, 0, "", generarPosicionesAleatoriasMinas(0,0),generarPosicionesAleatoriasMinas(0,0), "");
+		mina6 = new component(0, 0, "", generarPosicionesAleatoriasMinas(0,0),generarPosicionesAleatoriasMinas(0,0), "");
+		mina7 = new component(0, 0, "", generarPosicionesAleatoriasMinas(0,0),generarPosicionesAleatoriasMinas(0,0), "");
+		document.formulario.boton.value='Empezar';
+		contador=0;
+	}
+}
+
+//cargar los componentes de las imagenes
+function component(width, height, urlImagen, x, y, type) {
+	this.type = type;
+	//coge los tipos y crea las imagenes
+    if (type == "image" || type == "background" || type == "mina1"  || type == "mina2"  || type == "mina3"  || type == "mina4"  || type == "mina5"
+	 || type == "mina6" || type == "mina7") {
+        this.image = new Image();
+        this.image.src = urlImagen;
+    }
+	
+	//esto es para iniciar las propiedades
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;
+		
+	//estas funciones se cargan con las imagenes al cargar la página y cargan las propiedades de las imagenes
+    this.updateFondos = function() {
+        pantallaMovimiento = pantalla.context;
+        if (type == "image" || type == "background" || type == "mina1"  || type == "mina2"  || type == "mina3"  || type == "mina4"  || type == "mina5"
+	 || type == "mina6" || type == "mina7") {
+            pantallaMovimiento.drawImage(this.image, this.x, this.y,this.width, this.height);//Dibuja las imágenes en la posición correspondiente
+			if (type == "background") {
+				pantallaMovimiento.drawImage(this.image,  this.x + this.width, this.y, this.width, this.height);
+			}
+        } else {
+            pantallaMovimiento.fillStyle = urlImagen;
+        }
+		
+    }
+	
+	
+	
+	
+	//enviamos la posicion repetitiva
+    this.nuevaPosicion = function() {	
+		
+		this.x += this.speedX;
+		this.y += this.speedY;
+        
+		//si el fondo posicion es menor que el width vuelve a empezar
+        if (this.type == "background") {
+            if (this.x < -(this.width)) {
+                this.x = 0;
+            }
+        }
+		
+		//Controlamos que no se salga de la pantalla el barco
+        if (this.type == "image") {
+            if (this.x < 0) {
+                this.x = 0;//fondoMar = new component(800, 270, "explosionMar.jpg", 0, 0, "background");
+            }
+			if (this.x > 450) {
+                this.x = 450;
+            }
+			if (this.y < 0) {//se para arriba 
+                this.y = 0;
+            }
+			if (this.y > 245) {//se para abajo  
+                this.y = 245;
+            }
+			//Guardamos los movimientos
+			movimientoBarcoX = this.x;
+			movimientoBarcoY = this.y;
+        }
+		
+		//si las minas se pasan del width vuelven a empezar de forma aleatoria
+		if (this.type == "mina1") {
+            if (this.x < -(this.width)) {
+				this.x = generarPosicionesAleatoriasMinas(780, 800);
+				this.y = generarPosicionesAleatoriasMinas(10, 270);								
+            }
+			//Guardamos los movimientos
+			posicionMinasX1 = this.x;
+			posicionMinasY1 = this.y;
+			//si coinciden en las posiciones minas y barco
+			if( (movimientoBarcoX <= posicionMinasX1 +15 && movimientoBarcoX >= posicionMinasX1-15 ) && (movimientoBarcoY <= posicionMinasY1 +25 && movimientoBarcoY >= posicionMinasY1 -15) ){		
+				contador++;								
+			}		
+        }
+		if (this.type == "mina2") {
+            if (this.x < -(this.width)) {
+				this.x = generarPosicionesAleatoriasMinas(780, 800);
+				this.y = generarPosicionesAleatoriasMinas(10, 270);								
+            }
+			//Guardamos los movimientos
+			posicionMinasX2 = this.x;
+			posicionMinasY2 = this.y;
+			//si coinciden en las posiciones minas y barco
+			if( (movimientoBarcoX <= posicionMinasX2 +15 && movimientoBarcoX >= posicionMinasX2-15 ) && (movimientoBarcoY <= posicionMinasY2 +25 && movimientoBarcoY >= posicionMinasY2 -15) ){		
+				contador++;				
+			}			
+        }
+		if (this.type == "mina3") {
+            if (this.x < -(this.width)) {
+				this.x = generarPosicionesAleatoriasMinas(780, 800);
+				this.y = generarPosicionesAleatoriasMinas(10, 270);								
+            }
+			//Guardamos los movimientos
+			posicionMinasX3 = this.x;
+			posicionMinasY3 = this.y;
+			//si coinciden en las posiciones minas y barco
+			if( (movimientoBarcoX <= posicionMinasX3 +15 && movimientoBarcoX >= posicionMinasX3-15 ) && (movimientoBarcoY <= posicionMinasY3 +25 && movimientoBarcoY >= posicionMinasY3 -15) ){		
+				contador++;				
+			}			
+        }
+		if (this.type == "mina4") {
+            if (this.x < -(this.width)) {
+				this.x = generarPosicionesAleatoriasMinas(780, 800);
+				this.y = generarPosicionesAleatoriasMinas(10, 270);								
+            }
+			//Guardamos los movimientos
+			posicionMinasX4 = this.x;
+			posicionMinasY4 = this.y;
+			//si coinciden en las posiciones minas y barco
+			if( (movimientoBarcoX <= posicionMinasX4 +15 && movimientoBarcoX >= posicionMinasX4-15 ) && (movimientoBarcoY <= posicionMinasY4 +25 && movimientoBarcoY >= posicionMinasY4 -15) ){		
+				contador++;				
+			}		
+        }
+		if (this.type == "mina5") {
+            if (this.x < -(this.width)) {
+				this.x = generarPosicionesAleatoriasMinas(780, 800);
+				this.y = generarPosicionesAleatoriasMinas(10, 270);								
+            }
+			//Guardamos los movimientos
+			posicionMinasX5 = this.x;
+			posicionMinasY5 = this.y;
+			//si coinciden en las posiciones minas y barco
+			if( (movimientoBarcoX <= posicionMinasX5 +15 && movimientoBarcoX >= posicionMinasX5-15 ) && (movimientoBarcoY <= posicionMinasY5 +25 && movimientoBarcoY >= posicionMinasY5 -15) ){		
+				contador++;				
+			}		
+        }
+		if (this.type == "mina6") {
+            if (this.x < -(this.width)) {
+				this.x = generarPosicionesAleatoriasMinas(780, 800);
+				this.y = generarPosicionesAleatoriasMinas(10, 270);								
+            }
+			//Guardamos los movimientos
+			posicionMinasX6 = this.x;
+			posicionMinasY6 = this.y;
+			//si coinciden en las posiciones minas y barco
+			if( (movimientoBarcoX <= posicionMinasX6 +15 && movimientoBarcoX >= posicionMinasX6-15 ) && (movimientoBarcoY <= posicionMinasY6 +25 && movimientoBarcoY >= posicionMinasY6 -15) ){	
+				contador++;			
+			}			
+        }
+		if (this.type == "mina7") {
+            if (this.x < -(this.width)) {
+				this.x = generarPosicionesAleatoriasMinas(780, 800);
+				this.y = generarPosicionesAleatoriasMinas(10, 270);								
+            }
+			//Guardamos los movimientos
+			posicionMinasX7 = this.x;
+			posicionMinasY7 = this.y;
+			//si coinciden en las posiciones minas y barco
+			if( (movimientoBarcoX <= posicionMinasX7 +15 && movimientoBarcoX >= posicionMinasX7-15 ) && (movimientoBarcoY <= posicionMinasY7 +25 && movimientoBarcoY >= posicionMinasY7 -15) ){							
+				contador++;				
+			}			
+        }
+		
+		//comprbamos puntos para terminar partida o acelerar minas
+		if(contador < 100 && comprobar == true){
+			puntosConseguidos++;
+			puntosConseguidosDivididos = puntosConseguidos/100;
+			//aumentamos velocidad minas	
+			if(puntosConseguidosDivididos > 100*medir){
+				acelerar++;
+				medir++;	
+			}
+			document.getElementById("puntosConseguidos").innerHTML = puntosConseguidosDivididos;
+		}
+		if(contador < 100 && comprobar == false){
+			puntosConseguidos=0;
+			puntosConseguidosDivididos=0;
+			acelerar=0;
+			medir=0;
+			document.getElementById("puntosConseguidos").innerHTML = puntosConseguidos;
+		}		
+		//controlamos el fin de partida
+		document.getElementById("contadorChoques").innerHTML = contador;
+		if(contador >= 100){
+			contador = 100;
+			document.getElementById("contadorChoques").innerHTML = "HAS PERDIDO";
+			fondoMar = new component(800, 270, "explosionMar.jpg", 0, 0, "background");
+			this.x = 0;
+			this.y = 0;
+		}
+		
+		
+			
+        
+    }    
+}
+
+
+
+//para crear la pantalla con canvas
+var pantalla = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 800;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(cargarPantallaMovimiento, 20);
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    }
+}
+
+//para mover según la tecla pulsada
+function moverTecla(evt) {
+        switch (evt.keyCode) { 
+			case 37: //izquierda				
+				  imagenBarco.speedX = -1;
+				  break;
+			case 39: //derecha
+				  imagenBarco.speedX =  1;			 
+				  break;
+			case 40://abajo
+				  imagenBarco.speedY =  1; 
+				  break;
+			case 38://arriba 
+				  imagenBarco.speedY =  -1;
+				  break;
+			case 17://stop 
+				  imagenBarco.speedY =  0;
+				  imagenBarco.speedX =  0;	
+				  break;
+        }
+}
+
+//para cargar el movimiento de la pantalla
+function cargarPantallaMovimiento() {
+    pantalla.clear();
+	fondoMar.nuevaPosicion(); 
+	fondoMar.updateFondos();//carga el fondo del mar
+	imagenBarco.nuevaPosicion();
+	imagenBarco.updateFondos(); 
+	fondoMar.speedX = -1; 
+	
+	mina1.nuevaPosicion();   
+	mina1.updateFondos();//carga minas 
+	mina2.nuevaPosicion();    
+	mina2.updateFondos();
+	mina3.nuevaPosicion();    
+	mina3.updateFondos();
+	mina4.nuevaPosicion();    
+	mina4.updateFondos();
+	mina5.nuevaPosicion();    
+	mina5.updateFondos();
+	mina6.nuevaPosicion();    
+	mina6.updateFondos();
+	mina7.nuevaPosicion();    
+	mina7.updateFondos();
+	//ponemos la velocidad a las minas		
+	mina1.speedX = -3 - acelerar;		
+	mina2.speedX = -2 - acelerar;	
+	mina3.speedX = -2 - acelerar;	
+	mina4.speedX = -3 - acelerar;	
+	mina5.speedX = -2 - acelerar;		
+	mina6.speedX = -2 - acelerar;	
+	mina7.speedX = -1 - acelerar;
+	
+	
+	
+
+}
+
+
+
+
+
+</script>
+<div style="text-align:center;width:800px;border:1px solid black; background-color:yellow;">
+	<h2>Evita las minas</h2>
+	<form name="formulario">
+		<input type="button" value="Empezar" name="boton" onclick="empezarJuego()">
+	</form>
+</div>
+<div style="text-align:left;width:800px;border:1px solid black; background-color:pink;">
+	<p>
+	Pulsa las teclas<button>Arriba</button><button>Abajo</button> <button>Derecha</button> <button>Izquierda</button> 
+	para mover el barco y la tecla control para pararlo<button>Ctrl</button> 
+	</p>
+	<p>
+		<b>El barco solo puede avanzar hasta dos tercios de la pantalla. No debe tocar ni acercarse a las minas.</b>
+	</p>
+</div>
+
+<div style="text-align:left;width:800px;border:1px solid black; background-color:yellow;">
+	Contador Choques: <div id="contadorChoques"></div>
+	Contador puntos conseguidos: <div id="puntosConseguidos"></div>
+	<p>Si el contador de choques llega a 100 pierdes la partida al explotar la mina y salir en pantalla la explosion. El marcador de puntos aumentara cuanto más tiempo aguantes.
+	Cada 100 puntos conseguidos aumentará la velocidad de las minas</p>
+	<p>Si tocas o te acercas demasiado a una mina aumenta el contador de choques. Si pierdes o quieres reiniciar una partida, da al boton reiniciar y luego a empezar</p>
+</div>
+
+</body>
+</html>

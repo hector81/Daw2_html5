@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Formulario Curriculum</title>
+</head>
+<body>
+	<h2>Rellena tu CV</h2>
+	<form action="maneja_formulario.php" method="post" enctype="multipart/form-data" formnovalidate="formnovalidate" >
+		<!-- SECCION DATOS PERSONALES --> 
+		<fieldset>
+			<legend>Datos personales</legend>
+			Nombre* <input type="text" name="nombre" value="" required="required" autofocus="autofocus" autocomplete="on"/><br/><!--  -->
+			Primer apellido* <input type="text" name="apellido1" value="" required="required" autofocus="autofocus" autocomplete="on"/><br/>
+			Segundo apellido* <input type="text" name="apellido2" value="" required="required" autofocus="autofocus" autocomplete="on" /><br/>
+			DNI/NIE* <input type="text" name="dni" value="" size="10" maxlength="9" required="required" pattern="[0-9]{8}-[A-Z]{1}" placeholder="11112222-A" autocomplete="on" /><br/>
+			Indique su edad (entre 18 y 100): <input type="number" name="edad" min="18" max="100" step="2" value="48" autocomplete="on"/><br/>
+			Fecha Nacimiento* <input type="date" name="fechaNacimiento" value="" size="10" maxlength="9" required="required"/><br/>
+			<!--  RADIOBUTTON PARA EL SEXO-->
+			Sexo <br/>
+			<input type="radio" name="sexo" value="hombre" checked="checked"
+			/> Hombre
+			<input type="radio" name="sexo" value="mujer" /> Mujer
+			<br/>
+			<!--  CHECKBOX PARA LA UE-->
+			Ciudadano de la UE <br/>
+			<input name="ue-si" type="checkbox" value="ue-si"/>
+			Si 
+			<input name="ue-no" type="checkbox" value="ue-no"/>
+			No	
+		</fieldset>
+		<!-- SECCION DATOS CONTACTO --> 
+	    <fieldset>
+			<legend>Datos de contacto</legend>
+			Nombre de usuario* <input type="text" name="nombre" value="" maxlength="10" required="required"/><br/>
+			Contraseña* <input type="password" name="password" value="********" maxlength="10" required="required" /><br/>
+			Repite la contraseña* <input type="password" name="password2" value="" maxlength="10" required="required" /><br/>
+			<label for="telefono" required="required">Teléfono*</label>
+			<input type="text" name="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="telefono" value="" maxlength="10"><br/>
+			<label for="email">Correo electrónico</label>
+			<input type="email" name="correo electrónico" required placeholder="Dirección de correo electrónico"><br/>
+			Email <input type="email" name="email" value="" maxlength="10" /><br/>
+			Ciudad* <input type="ciudad" name="ciudad" value="" maxlength="10" required="required"/><br/>
+			Provincia <input type="provincia" name="provincia" value="" maxlength="10" /><br/>
+			Pais <input type="pais" name="pais" value="" maxlength="10" /><br/>
+					
+		</fieldset>
+		<!-- SECCION DATOS ACADEMICOS --> 
+	    <fieldset>
+			<legend>Datos académicos</legend>
+			<input list="estudios" name="estudio">
+			<datalist id="estudios">
+				<option value="SIN ESTUDIOS">
+				<option value="LOGSE">
+				<option value="BACHILLERATO">
+				<option value="FP BÁSICA">
+				<option value="FP SUPERIOR">
+				<option value="DIPLOMATURA">
+				<option value="LICENCIATURA">
+				<option value="GRADO BOLONIA">
+				<option value="DOCTORADO">
+			</datalist>
+			<br/>	
+			<label for="ramaEstudios">Indique rama</label> <br/>
+				<select id="ramaEstudios" name="ramaEstudios">
+				<optgroup label="Administracion">
+				<option value="Contabilidad" selected="selected">Contabilidad</option>
+				<option value="RRLL">RR.LL</option>
+				<option value="Fiscal">Fiscal</option>
+				<option value="Otro">Otro</option>
+				</optgroup>
+				<optgroup label="Informatica">
+				<option value="Redes" selected="selected">Redes</option>
+				<option value="Aplicaciones Web">Aplicaciones Web</option>
+				<option value="Aplicaciones moviles">Aplicaciones moviles</option>
+				<option value="Sistemas informáticos">Sistemas informáticos</option>
+				<option value="Otro">Otro</option>
+				</optgroup>
+				</select>
+		</fieldset>
+		<!-- SECCION DATOS LABORALES --> 
+	    <fieldset>
+			<legend>Datos laborales</legend>
+				<input list="experiencias" name="experiencia">
+				<datalist id="experiencias">
+					<option value="INFORMATICA">
+					<option value="ADMINISTRACIÓN">
+					<option value="OPERARIO">
+					<option value="LIMPIEZA">
+					<option value="JARDINERIA">
+					<option value="DIRECCIÓN">
+					<option value="SEGURIDAD">
+					<option value="TURISMO">
+					<option value="DOCENCIA">
+				</datalist><br/>
+				Indique sus años de experiencia: <br/><input type="yearExperiencia" name="yearExperiencia" min="0" max="100" step="2" value="0"/><br/>
+					
+		</fieldset>
+		<!-- SECCION OTROS DATOS --> 
+	    <fieldset>
+			<legend>Otros datos</legend>			
+				<label for="cursos">Pon otros datos que creas relevantes como cursos o habilidades</label> <br/>
+				<textarea id="cursos" name="cursos" cols="80"
+				rows="8"></textarea><br/>
+				
+				<label for="carnet">Carnet de conducir</label> <br/>
+				<select id="carnet" name="carnet">
+					<option value="carnet" selected="selected">- selecciona -</option>
+					<option value="A">A</option>
+					<option value="mac">B</option>
+					<option value="C">C</option>
+					<option value="D">D</option>
+				</select>
+				<br/>
+				<label for="Disponibilidad">Disponibilidad para viajar</label> <br/>
+					<select id="Disponibilidad" name="Disponibilidad" size="5">
+					<option value="Total" selected="selected">Total</option>
+					<option value="Media">Media</option>
+					<option value="Baja">Baja</option>
+					<option value="Ninguna">Ninguna</option>
+				</select>
+				<br/>
+				<label for="nacionalidad">Nacionalidad</label> <br/>
+					<select id="nacionalidad" name="nacionalidad" size="5" multiple="multiple">
+					<option value="nacionalidadSpain" selected="selected">Española</option>
+					<option value="nacionalidadUE">UE</option>
+					<option value="nacionalidadOtras">Otras</option>
+				</select>
+							
+		</fieldset>
+		<!-- SECCION FICHEROS ADJUNTOS --> 
+	    <fieldset>
+			<legend>Archivos adjuntos</legend>
+			Enviar curriculum formato word/pdf <input type="file" name="adjuntoCV" /><br/>
+			Enviar foto formato jpg/png <input type="image" name="adjuntoFoto" src="accept.png" alt="Enviar"/><br/>
+		</fieldset>
+		<!-- BOTON DE GUARDAR DATOS  -->
+		<input type="button" name="guardar" value="Guardar Cambios" onclick="msg()" /><br/>
+		<!-- BOTON DE BORRADO DE FORMULARIO  -->
+		<input type="reset" name="limpiar" value="Borrar datos del formulario" /><br/>
+		<!-- BOTON DE ENVIO DE FORMULARIO  -->
+		<input type="submit" name="enviar" value="Enviar" /><br/>
+	
+	</form>
+	<!-- End of contact-form -->
+</body>
+</html>

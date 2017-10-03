@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drag&Drop</title>
+    <link rel="stylesheet" href="puzzle.css" type="text/css">
+    <script type="text/javascript">
+		var id= "";
+        function empezar(ev){
+            ev.dataTransfer.effectAllowed='move';
+            id = ev.target.getAttribute('id');//guardar el atribut en una variable id
+            ev.dataTransfer.setDragImage(ev.target,0,0);
+
+            return true;
+        }
+        function entrar(ev){
+            return(true);
+        }
+        function encima(ev){			
+			var idDestinos = ev.target.getAttribute('id');//coger el id para saber que el destino que se esta arrastrando IMAGEN
+			if((idDestinos=="destino1") && (id == "arrastrable1") || (idDestinos=="destino2") && (id == "arrastrable2") ||
+			 (idDestinos=="destino3") && (id == "arrastrable3") || (idDestinos=="destino4") && (id == "arrastrable4") ||
+			 (idDestinos=="destino5") && (id == "arrastrable5") || (idDestinos=="destino6") && (id == "arrastrable6") ){
+			
+					document.getElementById(idDestinos).style.background="green";	
+					return false;
+
+			}else {
+					document.getElementById(idDestinos).style.background="red";
+					return false;
+			 }
+			
+        }
+
+        function soltar(ev){
+			var idDestinos = ev.target.getAttribute('id');//coger el id para saber que el destino que se esta arrastrando
+			if((idDestinos=="destino1") && (id == "arrastrable1") || (idDestinos=="destino2") && (id == "arrastrable2") ||
+			 (idDestinos=="destino3") && (id == "arrastrable3") || (idDestinos=="destino4") && (id == "arrastrable4") ||
+			 (idDestinos=="destino5") && (id == "arrastrable5") || (idDestinos=="destino6") && (id == "arrastrable6") ){//si el destino id es igual arrastraId
+					ev.target.appendChild(document.getElementById(id));
+					document.getElementById(id).style.width="300px";
+					document.getElementById(id).style.height="225px";
+					ev.stopPropagation();
+					return false;
+				
+			}else{
+				document.getElementById(idDestinos).style.background="yellow";//pone en amarillo cuando no es
+				return true;
+			}
+            
+        }
+        function terminar(ev){
+            ev.dataTransfer.clearData("Data");
+            return true;
+        }
+        function abortar(ev){
+			var idDestinos = ev.target.getAttribute('id');//coger el id para saber que el destino que se esta arrastrando
+			document.getElementById(idDestinos).style.background="yellow";//pone en amarillo cuando no es			
+            return true;
+        }
+    </script>
+    <meta charset="utf-8" />
+</head>
+<body>
+	<div id="contenedor">
+		<h1>PUZZLE INFANTIL</h1>
+		<div id="arrastrable">
+			<img src="imagenes1/i1.jpg" id="arrastrable1" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(event)"/>
+			<img src="imagenes1/i2.jpg" id="arrastrable2" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(event)"/>
+			<img src="imagenes1/i3.jpg" id="arrastrable3" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(event)"/>
+			<img src="imagenes1/i4.jpg" id="arrastrable4" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(event)"/>
+			<img src="imagenes1/i5.jpg" id="arrastrable5" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(event)"/>
+			<img src="imagenes1/i6.jpg" id="arrastrable6" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(event)"/>
+		</div>
+		<div id="destino">
+			<div id="destino1" ondragenter="return entrar(event)" ondragover="return encima(event)" ondrop="return soltar(event)" ondragleave="return abortar(event)">
+			
+			</div>
+			<div id="destino2" ondragenter="return entrar(event)" ondragover="return encima(event)" ondrop="return soltar(event)" ondragleave="return abortar(event)">
+			
+			</div>
+			<div id="destino3" ondragenter="return entrar(event)" ondragover="return encima(event)" ondrop="return soltar(event)" ondragleave="return abortar(event)">
+			
+			</div>
+			<div id="destino4" ondragenter="return entrar(event)" ondragover="return encima(event)" ondrop="return soltar(event)" ondragleave="return abortar(event)">
+			
+			</div>
+			<div id="destino5" ondragenter="return entrar(event)" ondragover="return encima(event)" ondrop="return soltar(event)" ondragleave="return abortar(event)">
+			
+			</div>
+			<div id="destino6" ondragenter="return entrar(event)" ondragover="return encima(event)" ondrop="return soltar(event)" ondragleave="return abortar(event)">
+			
+			</div>
+		</div>
+	</div>
+</body>
+</html>

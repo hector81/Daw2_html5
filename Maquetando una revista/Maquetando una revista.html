@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		body {
+			background-color : grey;
+			margin: 0 auto;
+		}
+		
+		#contenedor {
+			margin: 3em;
+			padding: 3em;
+			max-width: 1200px;
+			background-color : white;
+		}
+		
+		h3.recomendacion {
+			color: red;
+			font-size: 2em;
+		}
+
+		article {
+			margin: 0px;
+			padding: 2px;
+			overflow: hidden;width:100%;
+		}
+		
+		.columna11 {
+			border: 2px solid grey;	
+			height:190px;
+		}
+		
+		.izquierda {
+			float: left;
+			margin:4px 10px;
+			padding:0px;
+		}
+
+		article p {
+			line-height: 1.2; 
+			font-size: 1em;
+			letter-spacing: .2em;
+			white-space: pre-line;
+			overflow:auto;
+		}
+			
+		section#columna1 {
+			width: 1000px;
+			-moz-column-count: 3;
+			-moz-column-width: 250px;
+			-moz-column-gap: 30px
+			-moz-column-rule: 1px solid grey;
+			-webkit-column-count: 3;
+			-webkit-column-width: 250px;
+			-webkit-column-gap: 30px;
+			column-count: 3;
+			column-width: 250px;
+			column-gap: 30px;
+			margin: 20px;
+			padding: 5px;			
+				
+		}
+		
+		#columna2 {
+			width: 720px;
+			-moz-column-count: 3;
+			-moz-column-width: 220px; /* AMPLITUD COLUMNA*/
+			-moz-column-gap: 20px /* SEPARACION COLUMNAS */
+			-moz-column-rule: 5px solid grey; /* BORDE COLUMNAS */
+			-webkit-column-count: 3;
+			-webkit-column-width: 220px;
+			-webkit-column-gap: 20px;
+			-webkit-column-rule: 5px solid grey;
+			column-count: 3;
+			column-width: 220px;
+			column-gap: 20px;
+			column-rule: 5px solid grey;			
+				
+		}
+		
+		#columna2 img {
+			width: 75%;				
+		}
+		
+		#columna2 article {
+			margin: 10px;
+			padding: 2px;
+		}
+		
+		hr {
+			clear: both;
+			width:25%;
+		}
+		
+		
+		
+	</style>
+
+</head>
+<body>
+	<div id="contenedor">
+		<h1>Maquetando una revista<h1>
+		</br></br></br>
+		<h2>Prueba 1<h2>
+		</br>
+		<hr>
+		<h3 class="recomendacion">RECOMENDAMOS</h3>
+		</br>
+		<section id="columna1">
+			<article class="columna11">
+				<img src="imagen1.png" class="izquierda"/>
+				<p class="derecha">Siempre hay motivos para (re)descubrir Paría. Con la oferta mini de Air France, vuela a París desde 49 E todo el año</p>
+				<div id="romper"></div>
+			</article>
+			
+			<article class="columna11">
+				<img src="imagen2.png" class="izquierda"/>
+				<p class="derecha">¿Fitness? ¿Running? ¿Cuidas tus pies cuando haces deporte? ¿Seguro? ¡Entra y descúbrelo!</p>
+				<div id="romper"></div>
+			</article>
+			
+			<article class="columna11">
+				<img src="imagen3.png" class="izquierda"/>
+				<p class="derecha">El mejor sistema de dosificación de detergente líquido, de forma totalmente automática.</p>
+				<div id="romper"></div>
+			</article>
+			
+		</section>
+		
+		
+		<h2>Prueba 2<h2>
+		</br>
+		<hr>
+		<h3 class="recomendacion">RECOMENDAMOS</h3>
+		</br>
+		<section id="columna2">
+			<article>
+				<img src="imagen1.png"/>
+				<p>Siempre hay motivos para (re)descubrir Paría. Con la oferta mini de Air France, vuela a París desde 49 E todo el año</p>
+				<div id="romper"></div>
+				<img src="imagen2.png"/>
+				<p>¿Fitness? ¿Running? ¿Cuidas tus pies cuando haces deporte? ¿Seguro? ¡Entra y descúbrelo!</p>
+				<div id="romper"></div>
+				<img src="imagen3.png"/>
+				<p>El mejor sistema de dosificación de detergente líquido, de forma totalmente automática.</p>
+				<div id="romper"></div>
+			</article>
+		</section>
+	</div>
+</body>
+</html>

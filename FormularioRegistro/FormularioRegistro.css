@@ -1,0 +1,45 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: black;
+	margin: 0.25em auto;
+	color: black;
+	font-size: 1em;
+}
+
+form {
+  margin: 0.5em auto;
+  max-width: 495px; /* ancho maximo */
+  padding:0.25em;
+  background-color: white;
+}
+
+table {
+	background-color: white;
+}
+
+caption {
+	background-color: #87CEFA;
+	text-align: center;
+	margin: 0.25em auto; /* para que se centre*/
+}
+
+tr {
+	background-color: #7B68EE;
+}
+
+td#grisOscuro{ 
+	background-color: #A9A9A9;
+	text-align: right;
+}
+
+td#grisClaro{ 
+	background-color: #DCDCDC;
+}
+
+
+
+

@@ -1,0 +1,86 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: pink;
+	margin: 0.25em auto;
+	padding: 0.10em auto;
+	color: black;
+	font-size: 1em;	
+}
+
+table {
+	border-spacing: 0; /*La tabla no deberá presentar espacios vacíos entre las celdas con borde*/
+	width: 500px;
+	background: white;
+	margin-left: 50px;
+}
+
+.bordered {   /*  clase .bordered permite aplicar bordes redondeados y una ligera sombra:  */
+	border: solid #ccc 1px;
+	-moz-border-radius: 20px; /* para navegador mozzila */
+	-webkit-border-radius: 20px; /* para navegador Safari  explorer */
+	border-radius: 20px;
+	-webkit-box-shadow: 0 3px 3px #ccc;
+	-moz-box-shadow: 0 3px 3px #ccc;
+	box-shadow: 0 3px 3px #ccc;
+}
+
+
+.bordered td, .bordered th {/* Todas las celdas de la tabla (<th> y <td>) tienen un borde en los lados izquierdo y superior: */
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding: 10px;
+	text-align: left;
+}
+
+.bordered th {/* Las celdas del encabezado <th> de la primera línea presentan un degradado de fondo y una sombra, al igual que el texto */
+	background-color: #dce9f9;
+	background-image: -webkit-gradient(linear, left top, left
+	bottom, from(#ebf3fc), to(#dce9f9));
+	background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+	background-image: -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+	background-image: -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+	background-image: -o-linear-gradient(top, #ebf3fc, #dce9f9);
+	background-image: linear-gradient(top, #ebf3fc, #dce9f9);
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;/* para navegador Safari  explorer */
+	-moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset; /* para navegador mozzila */
+	box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+	border-top: none;
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+.bordered td:first-child, .bordered th:first-child { /* Para la primera línea de la tabla, no queremos que aparezca el borde de la primera celda <td> y la primera celda <th> */
+	border-left: none;
+}
+
+/* Ahora queremos que aparezcan redondeadas las primeras y las últimas celdas de la primera y la última línea. */
+
+.bordered th:first-child {/* Ahora queremos que aparezcan redondeadas las primeras y las últimas celdas de la primera y la última línea. */
+	-moz-border-radius: 20px 0 0 0;/* para navegador mozzila */
+	-webkit-border-radius: 20px 0 0 0;/* para navegador Safari  explorer */
+	border-radius: 20px 0 0 0;
+}
+.bordered th:last-child {/* Ahora queremos que aparezcan redondeadas las primeras y las últimas celdas de la primera y la última línea. */
+	-moz-border-radius: 0 20px 0 0; /* para navegador mozzila */
+	-webkit-border-radius: 0 20px 0 0;/* para navegador Safari  explorer */
+	border-radius: 0 20px 0 0;
+}
+.bordered tr:last-child td:first-child {/* Ahora queremos que aparezcan redondeadas las primeras y las últimas celdas de la primera y la última línea. */
+	-moz-border-radius: 0 0 0 20px; /* para navegador mozzila */
+	-webkit-border-radius: 0 0 0 20px;/* para navegador Safari  explorer */
+	border-radius: 0 0 0 20px;
+}
+.bordered tr:last-child td:last-child {/* Ahora queremos que aparezcan redondeadas las primeras y las últimas celdas de la primera y la última línea. */
+	-moz-border-radius: 0 0 20px 0; /* para navegador mozzila */
+	-webkit-border-radius: 0 0 20px 0;/* para navegador Safari  explorer */
+	border-radius: 0 0 20px 0;
+}
+
+
+
+.bordered tr:hover { /* Al pasar el ratón sobre las líneas, cambiará el color del fondo. Esta propiedad se consigue con la pseudo-clase :hover */
+	background: #fbf8e9;
+}

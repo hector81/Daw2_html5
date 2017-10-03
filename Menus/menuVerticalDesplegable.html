@@ -1,0 +1,123 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Menu Vertical</title>
+<style type="text/css">
+	* {
+		margin:0;
+		padding:0;
+	}
+
+	#header {
+		margin: 10px auto;
+		width:1000px;
+		font-family:Arial, Helvetica, sans-serif;
+	}
+	
+	ul.menu {
+		width: 180px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border: 1px solid #7C7C7C;
+		border-bottom: none;
+	}
+	ul.menu li {	
+		border-bottom: 1px solid #7C7C7C;
+		border-top: 1px solid #FFF;
+		background: #F4F4F4;
+	}
+	ul.menu li a {
+		padding: .2em 0 .2em .5em;
+		display: block;
+		text-decoration: none;
+		color: #333;
+	}
+	
+	ul {
+		list-style:none;
+	}
+	
+	/* color cada que se pase el raton*/
+	.menu li a:hover {
+		background-color:##F4F4F4;
+	}
+	
+	/* casillas submenus*/
+	.menu li ul {
+		display:none;
+		position:absolute;
+		min-width:140px;
+		border-left: 1px solid #7C7C7C;
+		margin-left: 150px;
+	}
+	
+	.menu li:hover > ul {
+		display:block;
+	}
+	
+	/*para que los submenus sean relativos en posicion */
+	.menu li ul li {
+		position:relative;
+	}
+	
+
+</style>
+</head>
+
+<body>
+	<div id="header">
+		<ul class="menu">
+			<li><a href="#" title="Enlace genérico">Elemento 1</a>
+				<ul>
+					<li><a href="">Submenu1</a></li>
+					<li><a href="">Submenu2</a></li>
+					<li><a href="">Submenu3</a></li>
+					<li><a href="">Submenu4</a></li>				
+				</ul>
+			</li>		
+			<li><a href="#" title="Enlace genérico">Elemento 2</a>
+				<ul>
+					<li><a href="">Submenu1</a></li>
+					<li><a href="">Submenu2</a></li>
+					<li><a href="">Submenu3</a></li>
+					<li><a href="">Submenu4</a></li>				
+				</ul>
+			</li>
+			<li><a href="#" title="Enlace genérico">Elemento 3</a>
+				<ul>
+					<li><a href="">Submenu1</a></li>
+					<li><a href="">Submenu2</a></li>
+					<li><a href="">Submenu3</a></li>
+					<li><a href="">Submenu4</a></li>				
+				</ul>
+			</li>
+			<li><a href="#" title="Enlace genérico">Elemento 4</a>
+				<ul>
+					<li><a href="">Submenu1</a></li>
+					<li><a href="">Submenu2</a></li>
+					<li><a href="">Submenu3</a></li>
+					<li><a href="">Submenu4</a></li>				
+				</ul>
+			</li>
+			<li><a href="#" title="Enlace genérico">Elemento 5</a>
+				<ul>
+					<li><a href="">Submenu1</a></li>
+					<li><a href="">Submenu2</a></li>
+					<li><a href="">Submenu3</a></li>
+					<li><a href="">Submenu4</a></li>				
+				</ul>
+			</li>
+			<li><a href="#" title="Enlace genérico">Elemento 6</a>
+				<ul>
+					<li><a href="">Submenu1</a></li>
+					<li><a href="">Submenu2</a></li>
+					<li><a href="">Submenu3</a></li>
+					<li><a href="">Submenu4</a></li>			
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

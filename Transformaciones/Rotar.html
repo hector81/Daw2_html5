@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Ejercicio</title>
+	<style>
+		#cuadro {
+			margin-left:200px;
+			border: 2px solid blue;
+			width: 1000px;
+			height: 1000px;
+		}
+	
+		.rotar:hover {
+			-moz-transform-origin: left top;
+			-webkit-transform-origin: left top;
+			-o-transform-origin:left top;
+			transform-origin: left top;
+			-moz-transform: rotate(32deg);
+			-webkit-transform: rotate(32deg);
+			-o-transform: rotate(32deg);
+			transform: rotate(32deg);
+		}
+	</style>
+</head>
+<body>
+	<div id="cuadro">
+		<div class="rotar">
+			<p><img src="leon.png" alt="León" class="desplazamiento" /></p>
+		</div>
+	</div>
+</body>
+</html>

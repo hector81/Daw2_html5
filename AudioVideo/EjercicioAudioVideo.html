@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+ 
+<head>
+	<title>Video</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="EjercicioAudioVideo.css">
+</head>
+ 
+<body>  	
+	<table>		
+		<!-- PARTE DEL VIDEO -->
+		<caption>Reproductor de VIDEO</caption>
+		<tr>
+			<td>
+				<video width="500" id="miVideo" height="500" poster="La Tabla de Flandes.jpg" onerror="failVideo(event)">
+					<source src="La Tabla de Flandes.ogv" type="video/ogg"></source>
+					<source src="La Tabla de Flandes.mp4" type="video/mp4"></source>
+					<source src="La Tabla de Flandes.webm" type="video/webm"></source>		
+					</br>
+					<!-- <track src="sub_es.vtt" kind="subtitles" srclang="es" label="sub_es"/>  subtitulos -->
+					<track src="sub_es.txt" kind="subtitles" srclang="es" label="sub_es"/>
+				</video>			
+			</td>
+		</tr>
+		</br>
+		</br>
+		</br>
+		<tr>			
+			<td>
+			</br>
+				<button id="btn_play_Video" onclick="playVideo()">PLAY</button>
+				<button id="btn_pause_Video" onclick="pauseVideo()">PAUSE</button>
+				<button id="btn_stop_Video" onclick="stopVideo()">STOP</button>
+				<input type="range_Video" min="0" max="3" step="0.1" id="volumen_Video" onchange="volumenVideo()">
+				<button id="btn_mute_Video" onclick="silenciarVideo()">SILENCIADO</button>	
+			</br>
+			</br>
+				<progress value="80" max="100"></progress>
+			</td>
+		</tr>
+		
+	</table>
+	
+	<hr>
+	
+	<table>
+	<!-- PARTE DEL AUDIO -->
+		<caption>Reproductor de AUDIO</caption>
+		<tr>
+			<td>
+			</br>
+				<audio width="500" height="500" id="miAudio" onerror="failAudio(event)">  
+					  <source src="Gavin Friday   In the shadow of a gun (The Boxer).mp3" type="audio/mp3"/></source>
+					  <source src="Gavin Friday   In the shadow of a gun (The Boxer).wav" type="audio/wav"/></source>
+					  <source src="Gavin Friday   In the shadow of a gun (The Boxer)" type="audio/ogg"/></source>	  	  
+				</audio>
+			</br>
+			</br>
+			</br>
+				<button id="btn_play_Audio" onclick="playAudio()">PLAY</button>
+				<button id="btn_pause_Audio" onclick="pauseAudio()">PAUSE</button>
+				<button id="btn_stop_Audio" onclick="stopAudio()">STOP</button>
+				<input type="range_Audio" min="0" max="3" step="0.1" id="volumen_Audio" onchange="volumenAudio()">
+				<button id="btn_mute" onclick="silenciarAudio()">SILENCIADO</button>
+			</br>
+			</br>
+				<progress value="80" max="100"></progress>
+			</td>	
+		</tr>	
+	</table>
+	<!-- PARTE DEL SCRIPT -->
+	<script type="text/javascript">
+		//Funciones Video
+		function playVideo(){
+			var audio = document.getElementById("miVideo");//esto llamara al id del button
+			audio.play(); //esto arranca el video
+		}
+		
+		function pauseVideo(){
+			var audio = document.getElementById("miVideo");//esto llamara al id del button
+			audio.pause(); //esto pausara el video
+		}
+		
+		function stopVideo(){
+			var audio = document.getElementById("miVideo");//esto llamara al id del button
+			audio.load(); //esto hara stop o parara el video
+		}
+		
+		function volumenVideo(){
+			var audio = document.getElementById("miVideo");//esto llamara al id del button
+			var miVolumen = document.getElementById('volumen_Video')//esto llamara al id del del input
+			audio.volume = miVolumen; //volumen
+		}
+		
+		function silenciarVideo(){
+			var audio = document.getElementById("miVideo");//esto llamara al id del button
+			if(audio.muted == true){ //si el video esta en silencio
+				audio.muted = false;
+				document.getElementById("btn_mute_Video").innerHTML="SILENCIADO";
+			}else{
+				audio.muted = true;
+				document.getElementById("btn_mute_Video").innerHTML="SILENCIADO";
+			}
+		}
+		
+		function failVideo(e){
+			switch(e.target.error.code){
+				case e.target.error.MEDIA_ERR_ABORTED:
+					alert('Has abortado la reproducción');
+					break;
+				case e.target.error.MEDIA_ERR_NETWORK:
+					alert('Error de red');
+					break;
+				case e.target.error.MEDIA_ERR_DECODE:
+					alert('Problema de corrupción');
+					break;
+				case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+					alert('Formato no soportado o archivo no encontrado');
+					break;
+				default:
+					alert('Ocurrio un problema desconocido');
+					break;
+					
+			}
+		}
+		
+		//Funciones Audio
+		function playAudio(){
+			var audio = document.getElementById("miAudio");//esto llamara al id del button
+			audio.play(); //esto arranca el audio
+		}
+		
+		function pauseAudio(){
+			var audio = document.getElementById("miAudio");//esto llamara al id del button
+			audio.pause(); //esto pausara el audio
+		}
+		
+		function stopAudio(){
+			var audio = document.getElementById("miAudio");//esto llamara al id del button
+			audio.load(); //esto hara stop o parara el audio
+		}
+		
+		function volumenAudio(){
+			var audio = document.getElementById("miAudio");//esto llamara al id del button
+			var miVolumen = document.getElementById('volumen_Audio')//esto llamara al id del del input
+			audio.volume = miVolumen; //volumen
+		}
+		
+		function silenciarAudio(){
+			var audio = document.getElementById("miAudio");//esto llamara al id del button
+			if(audio.muted == true){ //si el audio esta en silencio
+				audio.muted = false;
+				document.getElementById("btn_mute_Audio").innerHTML="SILENCIADO";
+			}else{
+				audio.muted = true;
+				document.getElementById("btn_mute_Audio").innerHTML="SILENCIADO";
+			}
+		}
+		
+		function failAudio(e){
+			switch(e.target.error.code){
+				case e.target.error.MEDIA_ERR_ABORTED:
+					alert('Has abortado la reproducción');
+					break;
+				case e.target.error.MEDIA_ERR_NETWORK:
+					alert('Error de red');
+					break;
+				case e.target.error.MEDIA_ERR_DECODE:
+					alert('Problema de corrupción');
+					break;
+				case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+					alert('Formato no soportado o archivo no encontrado');
+					break;
+				default:
+					alert('Ocurrio un problema desconocido');
+					break;
+					
+			}
+		}
+		
+	</script>
+	
+</body>
+</html>

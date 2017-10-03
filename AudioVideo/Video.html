@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+ 
+<head>
+	<title>Video</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="">
+</head>
+ 
+<body>  
+	<h1>Vídeos ogv mp4 wemb ogv wmv </h1>
+
+	<video width="300" height="300" poster="naturaleza.jpg" controls onerror="fail(event)">
+		  <source src="Wildlife.ogv" type="video/ogg"/></source>
+		  <source src="Wildlife.mp4" type="video/mp4"/></source>
+		  <source src="Wildlife.webm" type="video/webm"/></source>
+		  <source src="Wildlife.wmv" type="video/wmv"></source>
+		  
+		  <track src="sub_es.vtt" kind="subtitles" srclang="es" label="sub_es"/> <!-- subtitulos -->
+	</video>
+	
+	<hr>
+	
+	<h1>Película : La Tabla de Flandes</h1>
+	<video width="500" id="miVideo" height="500" poster="La Tabla de Flandes.jpg" > <!-- autoplay despues del controls para que se encienda al arrancar
+																					controls onerror="fail(event)-->
+		<source src="La Tabla de Flandes.webm" type="video/webm"></source>		
+		<source src="La Tabla de Flandes.wmv" type="video/wmv"></source>
+		<source src="La Tabla de Flandes.mp4" type="video/mp4"></source>
+		<source src="La Tabla de Flandes.ogv" type="video/ogg"></source>
+		
+		<track src="sub_es.vtt" kind="subtitles" srclang="es" label="sub_es"/> <!-- subtitulos -->
+	</video>
+	</br>
+		<button id="btn_play" onclick="play()">PLAY</button>
+		<button id="btn_pause" onclick="pause()">PAUSE</button>
+		<button id="btn_stop" onclick="stop()">STOP</button>
+		<input type="range" min="0" max="3" step="0.1" id="volumen" onchange="volumen()">
+		<button id="btn_mute" onclick="silenciar()">SILENCIO=OFF</button>
+	
+
+	
+	<script type="text/javascript">
+		//Funciones
+		function play(){
+			var audio = document.getElementById("miVideo");//esto llamara al id del button
+			audio.play(); //esto arranca el audio
+		}
+		
+		function pause(){
+			var audio = document.getElementById("miVideo");//esto llamara al id del button
+			audio.pause(); //esto pausara el audio
+		}
+		
+		function stop(){
+			var audio = document.getElementById("miVideo");//esto llamara al id del button
+			audio.load(); //esto hara stop o parara el audio
+		}
+		
+		function volumen(){
+			var audio = document.getElementById("miVideo");//esto llamara al id del button
+			var miVolumen = document.getElementById('volumen')//esto llamara al id del del input
+			audio.volume = miVolumen; //volumen
+		}
+		
+		function silenciar(){
+			var audio = document.getElementById("miVideo");//esto llamara al id del button
+			if(audio.muted == true){ //si el audio esta en silencio
+				audio.muted = false;
+				document.getElementById("btn_mute").innerHTML="SILENCIO=OFF";
+			}else{
+				audio.muted = true;
+				document.getElementById("btn_mute").innerHTML="SILENCIO=ON";
+			}
+		}
+		
+		function fail(e){
+			switch(e.target.error.code){
+				case e.target.error.MEDIA_ERR_ABORTED:
+					alert('Has abortado la reproducción');
+					break;
+				case e.target.error.MEDIA_ERR_NETWORK:
+					alert('Error de red');
+					break;
+				case e.target.error.MEDIA_ERR_DECODE:
+					alert('Problema de corrupción');
+					break;
+				case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+					alert('Formato no soportado o archivo no encontrado');
+					break;
+				default:
+					alert('Ocurrio un problema desconocido');
+					break;
+					
+			}
+		}
+		
+	</script>
+	
+</body>
+</html>

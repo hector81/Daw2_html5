@@ -1,0 +1,22 @@
+*{
+	margin: 0;
+	padding: 0;	
+}
+
+
+#portada1 img{
+	width: 50%;
+	height: 50%;
+	float: left;
+}
+
+
+#ancla  img{
+	position: fixed;
+	top: 50%; 
+	left: 47%;
+}
+
+
+
+

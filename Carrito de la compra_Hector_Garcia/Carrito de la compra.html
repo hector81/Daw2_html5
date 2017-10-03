@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrito de la compra</title>
+    <link rel="stylesheet" href="Carrito de la compra.css" type="text/css">
+    <script type="text/javascript">
+		var arrastraId = "";
+		var variable="";
+		function empezar(ev){
+            ev.dataTransfer.effectAllowed='move';
+            ev.dataTransfer.setData("Data",ev.target.getAttribute('id'));
+            ev.dataTransfer.setDragImage(ev.target,0,0);
+			ev.target.style.opacity = '0.6'; 
+			arrastraId = ev.target.getAttribute('id');			
+            return true;
+        }
+
+        function entrar(ev){
+            return(true);
+        }
+        function encima(ev){
+			var idDestinos = ev.target.getAttribute('id');
+            if (idDestinos == "carrito"){;//coger el id para saber que el destino al que se esta arrastrando
+				return false;
+			}else if (idDestinos == "basura"){;//coger el id para saber que el destino al que se esta arrastrando
+				return false;
+			}else{
+				return true;
+			}
+        }
+        function soltarCarrito(ev){		
+            var idDestinos = ev.target.getAttribute('id');//coger el id para saber que el destino que se esta arrastrando
+			//si la zona de destino es zonaLineasProductos
+			if((idDestinos=="carrito")){
+				//metemos el nombre del id escogido y le atribuimos la mismas propiedades al parrafo que las que tenian las imagenes
+				//Añadimos en el id del div que vamos a meter un nombre IDNUEVO para que se distinga del anterior id y cuando lo
+				//cojamos ese div para arrastrarlo a la basura se elimine este id y no el de la tabla de productos
+				document.getElementById("zonaLineasProductos").innerHTML += 
+				"<div id='IDNUEVO" + arrastraId + "' draggable='true' ondragstart='return empezar(event)' ondragend='return terminar(event)'>" + 
+				"<p>" + arrastraId + "</p><br>" + 
+ 				"</div>";
+				ev.stopPropagation();
+				return false;
+			}else if((idDestinos=="basura")){//si la zona de destino es zonaBasura
+					//con el nombre IDNUEVO mete este en la basura y no el de la tabla
+					variable= arrastraId;				
+					ev.target.appendChild(document.getElementById(variable));//quitamos el elemento y lo ponemos en la imagen basura
+					ev.stopPropagation();
+					return false;
+				}
+			else{	
+				return true;
+			}
+        }
+		
+		
+		
+        function terminar(ev){
+			ev.target.style.opacity = ''; 	
+            ev.dataTransfer.clearData("Data");
+            return true;
+        }
+        function abortar(ev){
+            return true;
+        }
+    </script>
+    <meta charset="utf-8" />
+</head>
+<body>
+	<div id="contenedor">
+		<h1>CARRITO DE LA COMPRA</h1>
+		<div id="arrastrable">
+			<table>
+				<tr id="titulos">
+					<td>
+					 IMAGEN
+					</td>
+					<td>
+					DESCRIPCIÓN
+					</td>
+					<td>
+					PRECIO
+					</td>
+				</tr>
+				<tr class="articulos">
+					<td>
+					<img src="imagenes2/dell.jpg" id="Ordenador DELL" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(event)"/>
+					</td>
+					<td class="texto" id="texto1">
+					Ordenador DELL
+					</td>
+					<td class="texto">
+					987€
+					</td>
+				</tr>
+				<tr class="articulos">
+					<td>
+					<img src="imagenes2/sony.jpg" id="Ordenador SONY" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(event)"/>
+					</td>
+					<td class="texto"  id="texto2">
+					Ordenador SONY
+					</td>
+					<td class="texto">
+					987€
+					</td>
+				</tr>
+				<tr class="articulos">
+					<td>
+					 <img src="imagenes2/apple.jpg" id="Ordenador APPLE" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(event)"/>
+					</td>
+					<td class="texto"  id="texto3">
+					Ordenador APPLE
+					</td>
+					<td class="texto">
+					987€
+					</td>
+				</tr>
+				<tr class="articulos">
+					<td>
+					<img src="imagenes2/pb.jpg" id="Ordenador PBELL" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(event)"/>
+					</td>
+					<td class="texto" id="texto4">
+					Ordenador PBELL
+					</td>
+					<td class="texto">
+					987€
+					</td>
+				</tr>
+				<tr class="articulos">
+					<td>
+					<img src="imagenes2/acer.jpg" id="Ordenador ACER" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(event)"/>
+					</td>
+					<td class="texto" id="texto5">
+					Ordenador ACER
+					</td>
+					<td class="texto">
+					987€
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="destino">
+			<div id="zonaDestino">
+				<div id="zonaCarro">
+					<img src="imagenes2/carrito.jpg" id="carrito" ondragenter="return entrar(event)" ondragover="return encima(event)" ondrop="return soltarCarrito(event)" ondragleave="return abortar(event)"/>
+				</div>
+				<div id="zonaLineasProductos" >
+					
+				</div>
+				<div id="zonaBasura">
+					<img src="imagenes2/cubo.jpg" id="basura" ondragenter="return entrar(event)" ondragover="return encima(event)" ondrop="return soltarCarrito(event)" ondragleave="return abortar(event)"/>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

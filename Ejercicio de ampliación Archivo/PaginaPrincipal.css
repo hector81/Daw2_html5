@@ -1,0 +1,81 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background:white;
+	margin: 0.5em auto;
+}
+
+header {
+	margin: 0.8em auto;
+	max-width: 960px; /* ancho maximo */
+	max-height: 181px;
+	text-align: center; 
+}
+
+header img {
+	width: 100%;
+	margin-bottom: 3em;
+}
+
+section#contenedor{
+	padding:0px;
+	margin: 0em auto;
+	max-width: 960px; /* ancho maximo */
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	column-count: 2;
+	width: 100%;
+}
+
+article.izquierda img{
+	margin-top: 2em;
+	margin-bottom: 2em;
+	width: 96%;
+}
+
+aside.derecha img{
+	margin-top: 2em;
+	margin-left: 15%;
+	width: 86%;
+}
+file:///C:/Users/user/Desktop/Ejercicio%20de%20ampliaci%C3%B3n%20Archivo/img/dcha.jpg
+#pagina {
+	background: rgba(237,237,237,1);
+	background: -moz-linear-gradient(-45deg, rgba(237,237,237,1) 16%, rgba(238,238,238,1) 20%, rgba(246,246,246,1) 41%, rgba(204,204,204,1) 92%);
+	background: -webkit-gradient(left top, right bottom, color-stop(16%, rgba(237,237,237,1)), color-stop(20%, rgba(238,238,238,1)), color-stop(41%, rgba(246,246,246,1)), color-stop(92%, rgba(204,204,204,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(237,237,237,1) 16%, rgba(238,238,238,1) 20%, rgba(246,246,246,1) 41%, rgba(204,204,204,1) 92%);
+	background: -o-linear-gradient(-45deg, rgba(237,237,237,1) 16%, rgba(238,238,238,1) 20%, rgba(246,246,246,1) 41%, rgba(204,204,204,1) 92%);
+	background: -ms-linear-gradient(-45deg, rgba(237,237,237,1) 16%, rgba(238,238,238,1) 20%, rgba(246,246,246,1) 41%, rgba(204,204,204,1) 92%);
+	background: linear-gradient(135deg, rgba(237,237,237,1) 16%, rgba(238,238,238,1) 20%, rgba(246,246,246,1) 41%, rgba(204,204,204,1) 92%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#cccccc', GradientType=1 );
+}
+
+footer {
+	margin: 0.5em auto;
+	max-width: 960px; /* ancho maximo */
+	padding:0.25em;
+	text-align: center; 
+}
+
+footer img{
+	width: 50%;
+}
+
+img.curva {
+	
+	-webkit-box-shadow: -1px 9px 0px 2px rgba(0,0,0,0.75);
+	-moz-box-shadow: -1px 9px 0px 2px rgba(0,0,0,0.75);
+	box-shadow: -1px 9px 0px 2px rgba(0,0,0,0.75);
+}
+
+
+
+
+
+
+
+
+

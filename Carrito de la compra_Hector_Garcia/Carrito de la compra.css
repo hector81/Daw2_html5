@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    text-align: center;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	background: white;
+}
+
+/*destino*/
+#contenedor{
+	width: 1000px;
+    height: 900px;
+	margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    background: pink;
+    float:left;
+    margin: 20px;
+    padding: 20px;
+	border-radius:20px;
+}
+
+/*arrastrable*/
+#arrastrable  {
+	width: 600px;
+    height: 800px;
+	background: lightblue;
+    float:left;
+	margin:20px;
+	border-radius:20px;
+	position:relative;
+}
+
+#arrastrable  table{
+	width: 560px;
+    height: 460px;
+    float:left;
+	margin:20px;
+	
+}
+
+#arrastrable  tr#titulos td {
+	width: 155px;
+	background: grey;
+    float:left;
+	margin:5px;
+	border: 1px solid black;
+}
+
+#arrastrable  tr.articulos td {
+	width: 155px;
+    float:left;
+}
+
+td.texto {
+	margin-left: 20px;
+	margin-top: 40px;
+}
+
+#arrastrable  tr td  img{
+	width: 145px;
+	height: 100px;
+	margin:5px;
+}
+
+/*destino*/
+#destino{
+	width: 300px;
+    height: 850px;
+    border-radius:20px;
+    background: lightblue;
+    float:left;
+    margin: 20px;
+}
+
+#zonaDestino{
+	width: 260px;
+    height: 800px;
+    border-radius:20px;
+    background: lightgreen;
+    float:left;
+    margin: 20px;
+}
+
+#zonaDestino #zonaCarro {
+	width: 240px;
+    height: 200px;
+	margin: 10px;
+}
+
+#zonaDestino #zonaCarro img {
+	width: 200px;
+    height: 200px;
+	border-radius:20px;
+}
+
+#zonaDestino #zonaLineasProductos {
+	width: 240px;
+    height: 350px;
+	margin: 10px;
+}
+
+#zonaDestino #zonaBasura {
+	width: 240px;
+    height: 200px;
+	margin: 10px;
+	background :transparent;
+}
+
+#zonaDestino #zonaBasura img {
+	width: 200px;
+    height: 200px;
+	border-radius:20px;
+}
+
+
+

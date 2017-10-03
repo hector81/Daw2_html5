@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    text-align: center;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	background: white;
+}
+
+h1.titulo {
+	border:2px solid white;
+	color:white;
+	text-align:center;
+	background-color: brown;
+}
+
+#contenedor{
+	width: 1111px;
+    height: auto;
+	margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    background: pink;
+    float:left;
+    margin: 20px;
+    padding: 20px;
+	border-radius:20px;
+}
+
+#principal{
+    height: 700px;
+    border-radius:20px;
+	border:1px solid black;
+    background: lightblue;
+    margin: 10px;
+}
+
+#botonera {
+	text-align:center;
+	background-color: brown;
+	margin:10px;
+	padding: 10px;
+	border-radius:20px;
+}
+
+#botonera input {
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-color:white;
+	width:40px;
+	height:40px;
+	margin:10px;
+}
+
+#botonera .boton1 {
+	background-image: url("imagenes/negrita.jpg");
+}
+
+#botonera .boton2 {
+	background-image: url("imagenes/cursiva.jpg");
+}
+
+#botonera .boton3 {
+	background-image: url("imagenes/subrayado.jpg");
+}
+
+#botonera .boton4 {
+	background-image: url("imagenes/alini.jpg");
+}
+
+#botonera .boton5 {
+	background-image: url("imagenes/alinc.jpg");
+}
+
+#botonera .boton6 {
+	background-image: url("imagenes/alind.jpg");
+}
+
+#botonera .boton7 {
+	background-image: url("imagenes/alinf.jpg");
+}
+
+#botonera .boton8 {
+	background-image: url("imagenes/lno.jpg");
+}
+
+#botonera .boton9 {
+	background-image: url("imagenes/lor.jpg");
+}
+
+#botonera .boton10 {
+	background-image: url("imagenes/subi.jpg");
+}
+#botonera .boton11 {
+	background-image: url("imagenes/supi.jpg");
+}
+
+#botonera .boton12 {
+	background-image: url("imagenes/fco.jpg");
+}
+
+#botonera .boton13 {
+	background-image: url("imagenes/bco.jpg");
+}
+
+#botonera .boton14 {
+	background-image: url("imagenes/imagen.jpg");
+}
+
+#botonera .boton15 {
+	background-image: url("imagenes/hipervinculo.jpg");
+}
+
+#editable{
+	width: 850px;
+    height: auto;
+    border-radius:20px;
+	border:10px solid black;
+    background: white;
+    margin: 33px;
+	padding:20px;
+	text-align:left;
+}
+
+.botonEnviar {
+	padding:10px;
+	background:grey;
+}
+

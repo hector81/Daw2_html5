@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drag&Drop</title>
+    <link rel="stylesheet" href="dragdrop.css" type="text/css">
+    <script type="text/javascript">
+        function empezar(ev){
+            ev.dataTransfer.effectAllowed='move';
+            ev.dataTransfer.setData("Data",ev.target.getAttribute('id'));
+            ev.dataTransfer.setDragImage(ev.target,0,0);
+            return true;
+        }
+        function entrar(ev){
+            return(true);
+        }
+        function encima(ev){
+            return false;
+        }
+        function soltar(ev){
+            var arrastraId=ev.dataTransfer.getData("Data");
+            ev.target.appendChild(document.getElementById(arrastraId));
+            ev.stopPropagation();
+            return false;
+        }
+        function terminar(ev){
+            ev.dataTransfer.clearData("Data");
+            return true;
+        }
+        function abortar(ev){
+            return true;
+        }
+    </script>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="destino" ondragenter="return entrar(event)" ondragover="return encima(event)" ondrop="return soltar(event)" ondragleave="return abortar(event)">
+        CONTENEDOR
+    </div>
+    <div id="arrastrable" draggable="true" ondragstart="return empezar(event)" ondragend="return terminar(evetn)">
+        A
+    </div>         
+</body>
+</html>

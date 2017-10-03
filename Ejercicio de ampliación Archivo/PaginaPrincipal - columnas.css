@@ -1,0 +1,77 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background:white;
+	margin: 0.5em auto;
+}
+
+#pagina {
+	background: rgba(237,237,237,1);
+	background: -moz-linear-gradient(-45deg, rgba(237,237,237,1) 16%, rgba(238,238,238,1) 20%, rgba(246,246,246,1) 41%, rgba(204,204,204,1) 92%);
+	background: -webkit-gradient(left top, right bottom, color-stop(16%, rgba(237,237,237,1)), color-stop(20%, rgba(238,238,238,1)), color-stop(41%, rgba(246,246,246,1)), color-stop(92%, rgba(204,204,204,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(237,237,237,1) 16%, rgba(238,238,238,1) 20%, rgba(246,246,246,1) 41%, rgba(204,204,204,1) 92%);
+	background: -o-linear-gradient(-45deg, rgba(237,237,237,1) 16%, rgba(238,238,238,1) 20%, rgba(246,246,246,1) 41%, rgba(204,204,204,1) 92%);
+	background: -ms-linear-gradient(-45deg, rgba(237,237,237,1) 16%, rgba(238,238,238,1) 20%, rgba(246,246,246,1) 41%, rgba(204,204,204,1) 92%);
+	background: linear-gradient(135deg, rgba(237,237,237,1) 16%, rgba(238,238,238,1) 20%, rgba(246,246,246,1) 41%, rgba(204,204,204,1) 92%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#cccccc', GradientType=1 );
+	margin-top: 1em;
+	margin-left: 6em;
+	margin-bottom: 1em;
+	margin-right: 6em;
+	padding: 1em;
+}
+
+img.curva {
+	-webkit-box-shadow: -1px 9px 0px 2px rgba(0,0,0,0.75);
+	-moz-box-shadow: -1px 9px 0px 2px rgba(0,0,0,0.75);
+	box-shadow: -1px 9px 0px 2px rgba(0,0,0,0.75);
+}
+
+header {
+	margin-left:4%;
+	width: 960x;
+}
+
+section#contenedor{
+	margin-left:4%;
+	margin-top: 15px;
+	-moz-column-count: 2;
+	-moz-column-width: 960px;
+	-moz-column-gap: 0px;
+	-moz-column-rule: 0px solid grey;
+	-webkit-column-count: 2;
+	-webkit-column-width: 960px;
+	-webkit-column-gap: 0px;
+	column-count: 2;
+	column-width: 960x;
+	column-gap: 0px;
+}
+
+article{
+	margin-left:0%;
+	margin-right:4%;
+	margin-top: 15px;
+}
+
+section#principal {
+	margin-top: 15px;
+	display: inline-block ;/* como si estuviera en bloque o linea */
+	vertical-align: top;/* para que el aside y section esten a la misma altura*/
+}
+
+aside{
+	display: inline-block ;/* como si estuviera en bloque o linea */
+	vertical-align: top;/* para que el aside y section esten a la misma altura*/
+	margin-top: 15px;
+	margin-left:5%;
+	margin-right:0%;
+}
+
+footer {
+	margin-top: 17px;
+	margin-left:25%;
+}
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Editor Inline</title>
+    <link rel="stylesheet" href="Editor.css" type="text/css">
+    <script type="text/javascript">
+	
+		//funcion negrita
+		function negrita(){
+			document.execCommand('bold', false, null); 
+		}
+		
+		//funcion cursiva
+		function cursiva(){
+			document.execCommand('italic', false, null); 
+		}
+		
+		//funcion subrayado
+		function subrayado(){
+			document.execCommand('underline', false, null); 
+		}
+		
+		//funcion alineacion Izquierda
+		function alineacionIzquierda(){
+			document.execCommand('justifyleft', false, null); 
+		}
+		
+		//funcion alineacion centrado
+		function centrado(){
+			document.execCommand('justifycenter', false, null); 
+		}
+		
+		//funcion alineacion Derecha
+		function alineacionDerecha(){
+			document.execCommand('justifyright', false, null); 
+		}
+		
+		//funcion alineacion justificada
+		function justificado(){
+			document.execCommand('justifyfull', false, null); 
+		}
+
+		//funcion lista Puntos  
+		function listaPuntos(){
+			document.execCommand('insertUnorderedList', false, null); 
+		}
+		
+		//funcion lista Numeros
+		function listaNumeros(){
+			document.execCommand('insertOrderedList', false, null); 
+		}
+		
+		//funcion equis Dos Abajo subindice
+		function equisDosAbajo(){
+			document.execCommand('subscript', false, null); 
+		}
+		
+		//funcion equis Dos Arriba superindice
+		function equisDosArriba(){
+			document.execCommand('superscript', false, null); 
+		}
+		
+		//funcion color Fuente
+		function colorFuente(){
+			var color = prompt("Introduce color a elegir para el color fuente: ","");
+			document.execCommand('forecolor', false, color); 
+		}
+		
+		//funcion color Resaltado Texto
+		function colorResaltadoTexto(){
+			var color = prompt("Introduce color a elegir para el color de resaltado del texto: ","");
+			document.execCommand('backcolor', false, color); 
+		}
+		
+		//funcion incluir Imagen
+		function incluirImagen(){
+			var imagen = prompt("Introduce la ruta","");
+			document.execCommand('insertimage', false, imagen); 
+		}
+		
+		//funcion hipervinculo
+		function hipervinculo(){
+			var direccion = prompt("Introduce la URL","http://");
+			document.execCommand('createlink', false, direccion); 
+		}
+
+		
+		var contador=0;
+		var publicacion = "";
+		function publicar(){
+			publicacion = document.getElementById("editable").innerHTML;
+			contador++;
+			document.getElementById("zonasPublicaciones").innerHTML += 
+			"<div id='IDNUEVO" + contador +"' style='margin:20px;text-align:left; border:1px solid black; border-radius: 13px; margin:10px; width:1000px ;height:auto;background-color:white;overflow:auto;;padding: 20px;'>" 
+			+ "<p>" + publicacion + "</p><br>" + "</div>";
+		}
+
+	
+    </script>
+    
+</head>
+<body>
+	<div id="contenedor">
+		<h1 class="titulo">Mensajes publicados</h1>
+		
+		<div id="zonasPublicaciones"></div>
+		
+		<div id="principal">
+			<h2>Publica aquí un mensaje</h2>
+			<div id="botonera">
+				<input type="button" class="boton1" onclick="negrita()"/>
+				<input type="button" class="boton2" onclick="cursiva()"/>
+				<input type="button" class="boton3" onclick="subrayado()"/>
+				<input type="button" class="boton4" onclick="alineacionIzquierda()"/>
+				<input type="button" class="boton5" onclick="centrado()"/>
+				<input type="button" class="boton6" onclick="alineacionDerecha()"/>
+				<input type="button" class="boton7" onclick="justificado()"/>
+				<input type="button" class="boton8" onclick="listaPuntos()"/>
+				<input type="button" class="boton9" onclick="listaNumeros()"/>
+				<input type="button" class="boton10" onclick="equisDosAbajo()"/>
+				<input type="button" class="boton11" onclick="equisDosArriba()"/>
+				<input type="button" class="boton12" onclick="colorFuente()"/>
+				<input type="button" class="boton13" onclick="colorResaltadoTexto()"/>
+				<input type="button" class="boton14" onclick="incluirImagen()"/>
+				<input type="button" class="boton15" onclick="hipervinculo()"/>
+			</div>
+			<!-- parte editable -->
+			<div id="editable" contenteditable="true" spellcheck="true"><!-- estos atributos son para poder escribir dentro -->
+
+			</div>
+			<input type="button" class="botonEnviar" value="publicar" onclick="publicar()"/>
+		</div>
+		
+	</div>
+</body>
+</html>
+

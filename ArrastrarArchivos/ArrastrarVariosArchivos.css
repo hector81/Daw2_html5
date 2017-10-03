@@ -1,0 +1,7 @@
+#principal{
+    border: 2px solid black;
+    background: grey;
+    float:left;
+    width: 300px;
+    text-align:center;
+}

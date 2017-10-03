@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrito de la compra - Almacenamiento web</title>
+    <link rel="stylesheet" href="Carrito de la compra-Almacenamiento web.css" type="text/css">
+    <script type="text/javascript">
+		//llevara el control de lo que hemos almacenado
+		var contadorPRINCIPAL = localStorage.length;
+		//variables para usar en la funciones
+		var contenido = "";
+		var fondo="imagenes/eliminar.jpg";
+		var facturaCantidad;
+		var total=0;
+		var descontar=0;
+
+		function generarContenido(nombreOrdenador,precio, cantidad,nombreCantidad ){
+			if(cantidad >0){
+				//para dejar a 0 el campo una vez pulsado comprar
+				document.getElementById(nombreCantidad).value = 0;
+				facturaCantidad = (precio.substring(0, precio.length-1))*(cantidad);//usamos substring para no coger el simbolo euro
+				contadorPRINCIPAL++;
+				alert(contadorPRINCIPAL);
+				contenido = "<div id='" + contadorPRINCIPAL +"'><table style='width: 800px; border:1px solid black; height: auto;float:left; background: white;'>"+
+				"<tr><td style='width: 160px; border:1px solid black;'>" + nombreOrdenador + 
+				"</td><td style='width: 160px;border:1px solid black;'>" + precio + 
+				"</td><td style='width: 160px;border:1px solid black;'>" + cantidad + 
+				"</td><td id='PRECIO" + contadorPRINCIPAL + "' style='width: 160px;border:1px solid black;'>" + facturaCantidad +
+				"</td><td style='width: 160px;border:1px solid black;'><img src='" + fondo + "' onclick='borrarElemento(" + contadorPRINCIPAL +")'/></td></tr>";
+				"</table></div>";				
+				//almacenamos
+				localStorage.setItem(contadorPRINCIPAL, contenido);
+				//llamamos a la funcion ver para que saque esta compra y tambien las demas
+				ver();//Para que lo coloque directamente abajo
+			}else{//si la cantidad es cero o menor no imprime nada ni hace nada			
+				facturaCantidad = 0;
+			}
+		}
+		
+		
+		//PARA ALMACENAR ORDENADOR DELL
+		function comprarDELL(){
+			var cantidadDELL = "cantidadDELL";
+			var nombreOrdenador = document.getElementById("dell").innerHTML;
+			var precio = document.getElementById("precioDELL").innerHTML;
+			var cantidad = document.getElementById("cantidadDELL").value;
+			generarContenido(nombreOrdenador,precio, cantidad,cantidadDELL );//llamamos a la funcion para generar contenido
+			ver();
+		}
+		
+		//PARA ALMACENAR ORDENADOR SONY
+		function comprarSONY(){
+			var cantidadSONY = "cantidadSONY";
+			var nombreOrdenador = document.getElementById("sony").innerHTML;
+			var precio = document.getElementById("precioSONY").innerHTML;
+			var cantidad = document.getElementById("cantidadSONY").value;
+			generarContenido(nombreOrdenador,precio, cantidad,cantidadSONY );//llamamos a la funcion para generar contenido
+			ver();
+		}
+		
+		//PARA ALMACENAR ORDENADOR APPLE
+		function comprarAPPLE(){
+			var cantidadAPPLE = "cantidadAPPLE";
+			var nombreOrdenador = document.getElementById("apple").innerHTML;
+			var precio = document.getElementById("precioAPPLE").innerHTML;
+			var cantidad = document.getElementById("cantidadAPPLE").value;
+			generarContenido(nombreOrdenador,precio, cantidad,cantidadAPPLE );//llamamos a la funcion para generar contenido
+			ver();
+		}
+		//PARA ALMACENAR ORDENADOR PBELL
+		function comprarPBELL(){
+			var cantidadPBELL = "cantidadPBELL";
+			var nombreOrdenador = document.getElementById("pbell").innerHTML;
+			var precio = document.getElementById("precioPBELL").innerHTML;
+			var cantidad = document.getElementById("cantidadPBELL").value;
+			generarContenido(nombreOrdenador,precio, cantidad,cantidadPBELL );//llamamos a la funcion para generar contenido
+			ver();
+		}
+		//PARA ALMACENAR ORDENADOR ACER
+		function comprarACER(){
+			var cantidadACER = "cantidadACER";
+			var nombreOrdenador = document.getElementById("acer").innerHTML;
+			var precio = document.getElementById("precioACER").innerHTML;
+			var cantidad = document.getElementById("cantidadACER").value;
+			generarContenido(nombreOrdenador,precio, cantidad,cantidadACER );//llamamos a la funcion para generar contenido
+			ver();
+		}
+		//para imprimir las facturas y el precio total
+		function ver(){ 
+			var nuevaCantidad = 0;
+			var nuevoTotal =0;
+			var cont = localStorage.length;//el contador total
+			if(cont == 0){//si el contador esta a 0 saca el mensaje
+				document.getElementById("zonaTablaFacturas").innerHTML = "EL CARRITO ESTÁ VACIO";
+				document.getElementById("PrecioTotalCarrito").innerHTML = "0";
+			}else{//y si no lo recorre
+				document.getElementById("zonaTablaFacturas").innerHTML = " ";
+				for( i = 0;i<cont; i++){
+					var clave = localStorage.key(i);
+					var dato = localStorage.getItem(clave);
+					document.getElementById("zonaTablaFacturas").innerHTML += dato + "<br>";
+				}
+				//esto es para que cada vez que actualize, el precio total se quede como esta
+				for( i = 0;i<=contadorPRINCIPAL; i++){
+					if(document.getElementById("PRECIO"+i) != null){
+						nuevaCantidad = document.getElementById("PRECIO"+i).innerHTML;
+					}else{
+						nuevaCantidad = 0;
+					}
+					nuevoTotal += parseInt(nuevaCantidad);
+				}
+				document.getElementById("PrecioTotalCarrito").innerHTML = nuevoTotal;
+			}			
+		}
+		 //para borrar elementos
+		function borrarElemento(numeroDivBorrar){ 
+			//borramos la posicion dada
+			localStorage.removeItem(numeroDivBorrar);
+			ver();//esto es para que en caso de que borremos desaparezca el indicado por la posicion
+		}
+		//para borrar todo
+		function borrar(){ 
+			contadorPRINCIPAL =0;///ponemos el localStorage.length a 0
+			localStorage.clear();
+			ver();//esto es para que en caso de que queramos borrar todo el listado no haya que actualizar para que se quite la lista
+			document.getElementById("PrecioTotalCarrito").innerHTML = 0;//reiniciamos precio total
+		}		
+		
+    </script>
+    <meta charset="utf-8" />
+</head>
+<body onload="ver()"><!-- para cada vez que actualize -->
+	<div id="contenedor">
+		<h1>CARRITO DE LA COMPRA</h1>
+		<div id="zonaCompras">
+			<table>
+				<tr id="titulos">
+					<td>IMAGEN</td>
+					<td>DESCRIPCIÓN</td>
+					<td>PRECIO</td>
+					<td>CANTIDAD</td>
+					<td>COMPRAR</td>
+				</tr>
+				<tr class="articulos">
+					<td><img src="imagenes/dell.jpg" id="Ordenador DELL"/></td>
+					<td class="texto" id="dell">Ordenador DELL</td>
+					<td class="texto" id="precioDELL">987€</td>
+					<td class="texto"><input type="number" id="cantidadDELL" value="0" maxlength="10"/></td>
+					<td class="texto"><input type="button" value="Comprar" onclick="comprarDELL()"/></td>
+				</tr>
+				<tr class="articulos">
+					<td><img src="imagenes/sony.jpg" id="Ordenador SONY"/></td>
+					<td class="texto" id="sony">Ordenador SONY</td>
+					<td class="texto" id="precioSONY">787€</td>
+					<td class="texto"><input type="number" id="cantidadSONY" value="0" maxlength="10"/></td>
+					<td class="texto"><input type="button" value="Comprar" onclick="comprarSONY()"/></td>
+				</tr>
+				<tr class="articulos">
+					<td><img src="imagenes/apple.jpg" id="Ordenador APPLE"/></td>
+					<td class="texto" id="apple">Ordenador APPLE</td>
+					<td class="texto" id="precioAPPLE">1073€</td>
+					<td class="texto"><input type="number" id="cantidadAPPLE" value="0" maxlength="10"/></td>
+					<td class="texto"><input type="button" value="Comprar" onclick="comprarAPPLE()"/></td>
+				</tr>
+				<tr class="articulos">
+					<td><img src="imagenes/pb.jpg" id="Ordenador PBELL"/></td>
+					<td class="texto" id="pbell">Ordenador PBELL</td>
+					<td class="texto" id="precioPBELL">585€</td>
+					<td class="texto"><input type="number" id="cantidadPBELL" value="0" maxlength="10"/></td>
+					<td class="texto"><input type="button" value="Comprar" onclick="comprarPBELL()"/></td>
+				</tr>
+				<tr class="articulos">
+					<td><img src="imagenes/acer.jpg" id="Ordenador ACER"/></td>
+					<td class="texto" id="acer">Ordenador ACER</td>
+					<td class="texto" id="precioACER">889€</td>
+					<td class="texto"><input type="number" id="cantidadACER" value="0" maxlength="10"/></td>
+					<td class="texto"><input type="button" value="Comprar" onclick="comprarACER()"/></td>
+				</tr>
+			</table>
+		</div>
+		<div id="zonaCarritoFacturas">
+			<h2>Este es el estado de tu carrito: </h2>
+			<table>
+				<tr id="titulos">
+					<td>PRODUCTO</td>
+					<td>PRECIO</td>
+					<td>UNIDADES</td>
+					<td>TOTAL</td>
+					<td>BOTON</td>
+				</tr>			
+			<table>
+			<div id="zonaTablaFacturas"></div>
+			<br>
+			
+			<div id="precioTotalFactura">
+				<h2>PRECIO TOTAL DE LA COMPRA: </h2>
+				<div id="PrecioTotalCarrito"></div>
+			</div>
+		</div>
+		<input type="button" value="Borrar listado" onclick="borrar()">
+		
+	</div>
+</body>
+</html>

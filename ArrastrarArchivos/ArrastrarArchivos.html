@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrastrar Archivos</title>
+    <link rel="stylesheet" href="ArrastrarArchivos.css" type="text/css">
+    <script type="text/javascript">
+	//cargamos la pagina nada mas empezar
+	window.onload=function(){
+		//cogemos la imagen del libro
+		var file = document.getElementById("libro");
+		var fileDetails;
+		//extreamos los detalles del archivo
+		if(typeof file.dataset === "undefined"){
+			fileDetails= file.getAttribute("data-downloadurl");
+		}else{
+			fileDetails= file.dataset.downloadurl;
+		}
+		
+		file.addEventListener("dragstart",function(ev)){
+			//enviamos los datos a filedetails mediente set data
+			ev.dataTransfer.setData("Downloadurl",fileDetails);
+		}
+	}
+        
+    </script>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="principal">
+		<h4>Arrastra el escritorio para descargar el libro</h4>
+		<img src="libro.jpg" id="libro" draggable="true"
+			data-downloadurl="application/pdf:
+							  DescargaLibrosHTML5.pdf:
+							  http://localhost/librosHTML5.pdf"/>
+		<h3>HTML5</h3>
+	</div>
+</body>
+</html>

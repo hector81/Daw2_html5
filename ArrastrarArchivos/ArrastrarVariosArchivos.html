@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrastrar Archivos</title>
+    <link rel="stylesheet" href="ArrastrarVariosArchivos.css" type="text/css">
+    <script type="text/javascript">
+	function soltar(ev){
+		var files = ev.dataTransfer.files;
+		
+		for(var i =0; files.length; i++){
+			var cadena= "<h1>" + files[i].name +  "<h1>";
+			document.getElementById("principal").innerHTML += CADENA;
+		}
+		ev.stopPropagation();
+		return false;
+	}
+        
+    </script>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="principal" ondrop="return soltar(event)">
+		<h1>Arrastra aquí los elementos desde el escritorio</h1>
+	</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    text-align: center;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	background: white;
+}
+
+/*contenedor*/
+#contenedor{
+	width: 1200px;
+    height: auto;
+	margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    background: pink;
+    float:left;
+    margin: 20px;
+    padding: 20px;
+	border-radius:20px;
+}
+
+/*zonaCompras*/
+#zonaCompras  {
+	width: 1000px;
+    height: auto;
+	background: lightblue;
+    float:left;
+	margin:20px;
+	border:1px solid black;
+	border-radius:20px;
+	position:relative;
+}
+
+#zonaCompras  table{
+	width: 950px;
+    height: 460px;
+    float:left;
+	margin:20px;
+	
+}
+
+#zonaCompras  tr#titulos td {
+	width: 155px;
+	background: grey;
+    float:left;
+	margin:5px;
+	border: 1px solid black;
+}
+
+#zonaCompras  tr.articulos td {
+	width: 155px;
+    float:left;
+}
+
+td.texto {
+	margin-left: 20px;
+	margin-top: 40px;
+}
+
+#zonaCompras  tr td  img{
+	width: 145px;
+	height: 100px;
+	margin:5px;
+}
+
+/*zonaCarritoFacturas*/
+#zonaCarritoFacturas {
+	width: 850px;
+    height: auto;
+	background: yellow;
+    float:left;
+	margin:20px;
+	border:1px solid black;
+	border-radius:20px;
+	position:relative;	
+}
+
+#zonaCarritoFacturas  table{
+	width: 800px;
+    height: auto;
+    float:left;
+	margin:20px;
+	
+}
+
+#zonaCarritoFacturas  #precioTotalFactura{
+    text-align:center;
+	width: 800px;
+    height: auto;
+}
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+	background-image: url("slider4.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+
+	
+	animation: fondo 1s linear infinite;
+}
+
+div.coche {
+    width: 259px;
+    height: 194px;
+	top: 500px;
+	left:600px;
+	position :relative;
+	background-image: url("coche2.png");
+}
+
+div.rueda1 {
+	top: 105px;
+	left:182px;
+	position: absolute;
+	background-image: url("rueda2.png");
+	width: 41px;
+    height: 41px;
+	animation: rueda 1s linear infinite;
+}
+
+div.rueda2 {
+	top: 105px;
+	left:27px;
+	position: absolute;
+	background-image: url("rueda2.png");
+	width: 41px;
+    height: 41px;	
+	animation: rueda .5s linear infinite;
+}
+
+@keyframes fondo {
+	0% { background-position: left top; }
+	100% { background-position: right top; }
+}
+
+@keyframes rueda {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg);}
+}
+
+</style>
+</head>
+<body>
+
+
+
+<div class="coche">
+	<div class="rueda1">
+	</div>
+	<div class="rueda2">
+	</div>
+</div>
+
+
+
+</body>
+</html>

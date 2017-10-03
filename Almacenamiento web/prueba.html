@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Formulario Provincias</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			#listado, #botones {
+				border:2px solid black;
+				width:414px;
+				margin:5px auto;
+			}
+			
+			#listado {
+				min-height:200px;
+			}
+		</style>
+		<script type="text/javascript">
+		var cantidad= (localStorage.length)+1;
+		
+		function almacenar(){ 
+			var contenido = document.getElementById("elemento").value;
+			localStorage.setItem("Factura " + cantidad, contenido);
+			cantidad++;
+		} 
+		
+		function verElemento(){ 
+			var posicion = document.getElementById("verEl").value;
+			
+			var clave = localStorage.key(posicion);
+			var dato = localStorage.getItem(clave);
+			document.getElementById("listado").innerHTML = clave + " = " + dato;
+		}
+		
+		function ver(){ 
+			var cont = localStorage.length;
+			document.getElementById("listado").innerHTML = " ";
+			for( i = 0;i<cont; i++){
+				var clave = localStorage.key(i);
+				var dato = localStorage.getItem(clave);
+				
+				document.getElementById("listado").innerHTML += clave + " = " + dato + "<br>";
+			}
+		}
+		 
+		function borrarElemento(){ 
+			var posicion = document.getElementById("borrarEl").value;
+			
+			var clave = localStorage.key(posicion);
+			var dato = localStorage.removeItem(clave);
+		}
+		
+		function borrar(){ 
+			localStorage.clear();
+		}
+		
+		</script>
+	</head>
+
+<body onload="ver()">
+	<div id="botones">
+		<input type="text" id="elemento">
+		<input type="button" value="Guardar" onclick="almacenar()"><br>
+		
+		<input type="number" value="0" id="verEl">
+		<input type="button" value="Ver elemento" onclick="verElemento()">
+		<input type="button" value="Ver listado" onclick="ver()"><br>
+		
+		<input type="number" value="0" id="borrarEl">
+		<input type="button" value="Borrar elemento" onclick="borrarElemento()">
+		<input type="button" value="Borrar listado" onclick="borrar()">
+	</div>
+	<div id="listado"></div>
+</body>
+</html>

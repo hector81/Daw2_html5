@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	background: yellow;
+}
+
+.slides {
+	background: white;
+	background-image: url("slider1.jpg"); 
+	background-position: 0% 90%;  
+	/* background-repeat: no-repeat;  */
+	/* background-attachment: fixed;  */
+	/* background-size: cover;  */
+	padding:1em auto;
+	margin: 1em auto; 
+	width: 90%;
+	height: 90%;	
+	position: absolute;
+}
+
+
+.slides li span {
+	/* opacity:0;  */
+	/* z-index:0;  */
+}
+
+.slides li:nth-child(1) {
+    background: red;
+}
+
+.slides li:nth-child(2) {
+    background: blue;
+}
+
+.slides li:nth-child(3) {
+    background: yellow;
+}
+
+.slides li:nth-child(4) {
+    background-image: url("slider4.jpg"); 
+}
+ 
+
+
+
+</style>
+</head>
+<body>
+
+<div class="slides">
+	<ul class="slides-container">
+		<li><span><img src="slider1.jpg"/></span></li>
+		<li><span><img src="slider2.jpg"/></span></li>
+		<li><span><img src="slider3.jpg"/></span></li>
+		<li><span><img src="slider4.jpg"/></span></li>
+		<li><span><img src="slider5.jpg"/></span></li>
+		<li><span><img src="slider6.jpg"/></span></li>
+	</ul>
+</div>
+
+</body>
+</html>
